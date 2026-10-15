@@ -30,6 +30,7 @@ Visitors arrive on a campaign landing page and can continue to LifeWise Academy'
 - LifeWise Academy's official website describes Bible-based character education during the school day and names courage, kindness, and respect as character traits.
 - User-supplied LifeWise classroom and bus photos are stored in `assets/`.
 - User-supplied community volunteer photo is illustrative and must not be represented as a local LifeWise event.
+- LifeWise publishes general Street Team, program launch, and church liaison resources. These do not establish local openings in Lee or Collier counties.
 
 ## Product Principles
 - Make the during-school-hours program clear before asking for a gift.

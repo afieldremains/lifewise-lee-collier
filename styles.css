@@ -144,6 +144,7 @@ summary:focus-visible {
 .site-nav a,
 .text-link,
 .local-contact,
+.volunteer-contact,
 .footer-link {
   text-decoration: none;
 }
@@ -526,6 +527,92 @@ summary:focus-visible {
   font-weight: 900;
 }
 
+.volunteer-section {
+  background: var(--paper);
+}
+
+.volunteer-heading {
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 0.58fr);
+  gap: 8%;
+  align-items: end;
+}
+
+.volunteer-heading h2 {
+  max-width: 700px;
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(38px, 4.5vw, 62px);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.volunteer-heading > p {
+  max-width: 40ch;
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.volunteer-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  margin-top: 60px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.volunteer-option h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.volunteer-option p {
+  min-height: 72px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.volunteer-option a,
+.volunteer-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.volunteer-option a:hover,
+.volunteer-contact:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.volunteer-note {
+  max-width: 80ch;
+  margin: 36px 0 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.volunteer-contact {
+  color: var(--navy);
+}
+
 .county-stamp {
   position: absolute;
   right: 19px;
@@ -797,6 +884,15 @@ summary:focus-visible {
     max-width: 55ch;
   }
 
+  .volunteer-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .volunteer-heading > p {
+    max-width: 55ch;
+  }
+
   .local-copy {
     padding: 60px 36px;
   }
@@ -946,6 +1042,26 @@ summary:focus-visible {
 
   .program-heading > p:last-child {
     font-size: 14px;
+  }
+
+  .volunteer-heading h2 {
+    font-size: clamp(38px, 10vw, 52px);
+  }
+
+  .volunteer-heading > p {
+    font-size: 14px;
+  }
+
+  .volunteer-options {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    margin-top: 38px;
+    padding-top: 24px;
+  }
+
+  .volunteer-option p {
+    min-height: 0;
+    margin-bottom: 12px;
   }
 
   .school-day-rail {

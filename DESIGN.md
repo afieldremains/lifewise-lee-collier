@@ -4,6 +4,8 @@
 
 The Lee + Collier landing page is a county-focused campaign poster built around the LifeWise school-day classroom. It uses a timetable-like reading path to explain the program, then shifts into direct local-giving guidance. Do not imply that a LifeWise program is active in either county unless that fact is confirmed.
 
+The first viewport exposes both primary actions: donate through the official checkout or jump to volunteer pathways. Keep volunteer choices as an open editorial list rather than cards, and label LifeWise’s Street Team, launch, and church resources as general pathways until local availability is confirmed.
+
 ## Palette
 
 - LifeWise red: `#cf3339`
