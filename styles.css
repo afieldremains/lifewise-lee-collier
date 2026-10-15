@@ -757,10 +757,18 @@ summary:focus-visible {
 .donation-tiers li {
   display: flex;
   min-height: 66px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.donation-tier {
+  display: flex;
+  flex: 1;
+  min-width: 0;
   align-items: center;
   gap: 12px;
   padding: 10px 9px 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: inherit;
+  text-decoration: none;
 }
 
 .donation-tiers li:nth-child(odd) {
@@ -768,8 +776,26 @@ summary:focus-visible {
 }
 
 .donation-tiers li:nth-child(even) {
-  padding-left: 13px;
   border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.donation-tiers li:nth-child(even) .donation-tier {
+  padding-left: 13px;
+}
+
+.donation-tier:hover {
+  color: var(--yellow);
+}
+
+.donation-tier-arrow {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--yellow);
+  transition: transform 180ms ease-out;
+}
+
+.donation-tier:hover .donation-tier-arrow {
+  transform: translateX(3px);
 }
 
 .donation-tiers li strong {
