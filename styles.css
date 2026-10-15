@@ -874,6 +874,23 @@ summary:focus-visible {
   line-height: 1.5;
 }
 
+.year-end-gift {
+  max-width: 380px;
+}
+
+.year-end-gift label {
+  letter-spacing: 0.04em;
+}
+
+.year-end-gift .button {
+  align-self: flex-start;
+  margin-top: 5px;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
 .button-yellow {
   color: var(--navy);
   background: var(--yellow);

@@ -169,6 +169,16 @@
           </div>
           <p id="other-amount-note">For a custom gift, enter your amount again on LifeWise’s official checkout.</p>
         </div>
+        <form class="other-amount year-end-gift" action="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all" method="get" target="_blank" rel="noopener">
+          <input type="hidden" name="payment_processor" value="payrix">
+          <label for="year-end-gift-amount">YEAR END ONE TIME GIFT:</label>
+          <div class="amount-input">
+            <span aria-hidden="true">$</span>
+            <input id="year-end-gift-amount" name="amount" type="number" min="1" step="1" inputmode="numeric" required aria-describedby="year-end-gift-note">
+          </div>
+          <p id="year-end-gift-note">Enter a gift amount to open LifeWise’s official checkout with a one-time gift prefilled.</p>
+          <button class="button button-yellow" type="submit">Give this one-time gift <span aria-hidden="true">-&gt;</span></button>
+        </form>
         <a class="button button-yellow" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix" target="_blank" rel="noopener noreferrer">
           Give through LifeWise <span aria-hidden="true">-&gt;</span>
         </a>
