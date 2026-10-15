@@ -730,6 +730,124 @@ summary:focus-visible {
   line-height: 1.7;
 }
 
+.donation-tiers {
+  width: 100%;
+  max-width: 510px;
+  margin: 0 0 21px;
+}
+
+.donation-tiers h3 {
+  margin: 0 0 12px;
+  color: var(--yellow);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.donation-tiers ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  list-style: none;
+}
+
+.donation-tiers li {
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 9px 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.donation-tiers li:nth-child(odd) {
+  margin-right: 13px;
+}
+
+.donation-tiers li:nth-child(even) {
+  padding-left: 13px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.donation-tiers li strong {
+  flex: 0 0 auto;
+  color: var(--yellow);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.donation-tiers li span {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.give-copy .tier-note {
+  margin: 10px 0 0;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.other-amount {
+  display: grid;
+  width: 100%;
+  max-width: 280px;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin: 0 0 22px;
+}
+
+.other-amount label {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.amount-input {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: var(--navy);
+  background: #fff;
+}
+
+.amount-input span {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.amount-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 0;
+  border: 0;
+  outline: 0;
+  color: var(--navy);
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+}
+
+.amount-input:focus-within {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.give-copy .other-amount > p {
+  margin: 0;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
 .button-yellow {
   color: var(--navy);
   background: var(--yellow);
