@@ -699,20 +699,6 @@ summary:focus-visible {
   content: "";
 }
 
-.illustration-note {
-  position: absolute;
-  z-index: 1;
-  right: 18px;
-  bottom: 18px;
-  padding: 7px 9px;
-  color: var(--navy);
-  background: var(--yellow);
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .give-copy {
   display: flex;
   max-width: 680px;
