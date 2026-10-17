@@ -1,0 +1,77 @@
+@font-face{font-family:"Roboto";font-style:normal;font-weight:100 900;font-display:block;src:url(data:font/woff2;base64,{{FONT}}) format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#102d4b;--navy-deep:#0a223b;--red:#cf3339;--yellow:#f6d44d;--blue:#00bfed;--sky:#d9f3fa;--paper:#fffdf7;--ease:cubic-bezier(.22,1,.36,1);--ease-soft:cubic-bezier(.45,0,.55,1)}
+html,body{width:320px;height:480px;overflow:hidden;background:var(--navy)}
+body{font-family:Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+
+.ad{position:relative;display:block;width:320px;height:480px;overflow:hidden;isolation:isolate;color:var(--navy);text-decoration:none;cursor:pointer;outline-offset:-4px}
+.ad:focus-visible{outline:3px solid var(--blue)}
+
+/* ---------- intro choreography ---------- */
+.in{animation:rise 820ms var(--ease) both;animation-delay:var(--d,0ms)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.drop{animation:drop 700ms var(--ease) both;animation-delay:var(--d,0ms)}
+@keyframes drop{from{transform:translateY(-100%)}to{transform:none}}
+
+/* ---------- morphing field (landing-page morph-shape + morph-drift) ---------- */
+.field{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;display:block;opacity:var(--o,1);animation:morph var(--m,12s) ease-in-out infinite alternate,drift var(--dr,18s) ease-in-out infinite alternate,blob-in 1300ms var(--ease) both;animation-delay:var(--md,0s),var(--dd,0s),var(--d,0ms);will-change:transform,border-radius}
+@keyframes blob-in{from{scale:.15;opacity:0}to{scale:1;opacity:var(--o,1)}}
+@keyframes morph{
+  0%{border-radius:58% 42% 63% 37%/45% 55% 45% 55%}
+  33%{border-radius:38% 62% 42% 58%/62% 38% 62% 38%}
+  66%{border-radius:65% 35% 55% 45%/38% 62% 40% 60%}
+  100%{border-radius:44% 56% 36% 64%/58% 42% 56% 44%}
+}
+@keyframes drift{
+  0%{transform:translate(0,0) rotate(0deg) scale(1)}
+  100%{transform:translate(22px,-18px) rotate(46deg) scale(1.16)}
+}
+.morph-svg{position:absolute;z-index:0;pointer-events:none;animation:svg-spin 38s linear infinite,blob-in 1300ms var(--ease) both;animation-delay:0s,var(--d,0ms)}
+@keyframes svg-spin{to{transform:rotate(360deg)}}
+
+/* ---------- county ribbon (landing hero) ---------- */
+.ribbon{position:absolute;z-index:6;top:0;left:0;right:0;height:26px;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--blue);color:var(--navy-deep);font-size:9.5px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+.ribbon i{display:block;width:6px;height:6px;background:var(--red);transform:rotate(45deg)}
+.ribbon .tail{margin-left:4px;font-weight:700;color:rgba(10,34,59,.72)}
+
+/* ---------- wordmark (landing header) ---------- */
+.wordmark{display:inline-flex;align-items:baseline;font-weight:900;font-size:22px;line-height:1;letter-spacing:-.075em;white-space:nowrap}
+.wordmark .life{color:var(--red)}
+.wordmark .wise{color:var(--navy)}
+.wordmark .acad{align-self:flex-end;margin:0 0 2px 6px;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+
+/* ---------- photo in a living blob ---------- */
+.photo{position:absolute;z-index:3;overflow:hidden;background:var(--navy);animation:morph-photo 13s ease-in-out infinite alternate,photo-in 1100ms var(--ease) both,photo-float 9s ease-in-out infinite alternate;animation-delay:0s,var(--d,300ms),0s;will-change:border-radius}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;transform-origin:50% 40%;animation:ken 16s ease-in-out infinite alternate}
+@keyframes ken{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.14) translate(-1.6%,1.2%)}}
+@keyframes photo-in{from{clip-path:circle(0% at 50% 55%);opacity:0}to{clip-path:circle(78% at 50% 55%);opacity:1}}
+@keyframes photo-float{from{translate:0 0}to{translate:0 -4px}}
+.cap{position:absolute;z-index:2;left:12px;bottom:10px;right:12px;display:flex;align-items:center;gap:7px;color:#fff;font-size:10.5px;font-weight:700;line-height:1.2;text-shadow:0 1px 8px rgba(10,34,59,.8)}
+.cap b{flex:0 0 auto;width:7px;height:7px;background:var(--yellow);border-radius:50%;animation:dot 2.2s ease-out infinite}
+@keyframes dot{0%{box-shadow:0 0 0 0 rgba(246,212,77,.8)}70%,100%{box-shadow:0 0 0 9px rgba(246,212,77,0)}}
+
+/* hero "sun" ring */
+.sun{position:absolute;z-index:4;border:11px solid var(--red);animation:morph 9s ease-in-out infinite alternate,svg-spin 22s linear infinite,pop 800ms var(--ease) both;animation-delay:0s,0s,var(--d,700ms);pointer-events:none}
+@keyframes pop{from{opacity:0;scale:.2}to{opacity:1;scale:1}}
+
+/* ---------- headline ---------- */
+h1{position:relative;z-index:5;font-weight:900;letter-spacing:-.05em;line-height:.98}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .ln>span{display:block;animation:word 900ms var(--ease) both;animation-delay:var(--d,0ms)}
+@keyframes word{from{transform:translateY(105%) rotate(2deg)}to{transform:none}}
+
+/* ---------- donate button ---------- */
+.cta{position:absolute;z-index:7;left:22px;right:22px;height:52px;display:flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;font-size:19px;font-weight:900;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}
+.cta .arr{display:inline-block;animation:arr 1.5s var(--ease-soft) infinite}
+@keyframes arr{0%,55%,100%{transform:translateX(0)}75%{transform:translateX(6px)}}
+.cta::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:38%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.6s ease-in-out 2.4s infinite;pointer-events:none}
+@keyframes shine{0%,62%{left:-60%}100%{left:135%}}
+.ring{position:absolute;z-index:6;left:22px;right:22px;height:52px;pointer-events:none;animation:ring 2.6s ease-out 2.2s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 var(--ringc,rgba(246,212,77,.75))}70%,100%{box-shadow:0 0 0 16px rgba(246,212,77,0)}}
+
+.fine{position:absolute;z-index:7;left:22px;right:22px;text-align:center;font-size:9.5px;font-weight:500;line-height:1.35;letter-spacing:.01em}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important}
+}

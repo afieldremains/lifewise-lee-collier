@@ -31,6 +31,8 @@ jobs:
           mkdir -p dist/assets
           cp index.html styles.css script.js dist/
           cp -R assets/. dist/assets/
+          mkdir -p dist/banners
+          cp banners/*.html banners/*.png dist/banners/
           touch dist/.nojekyll
       - name: Upload the public site
         uses: actions/upload-pages-artifact@v3
