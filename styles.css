@@ -1351,3 +1351,130 @@ body a[href] {
 body a[href]:hover {
   text-decoration-thickness: 2.5px;
 }
+
+/* Morphing background graphics */
+.hero,
+.give-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.morph-field {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.morph {
+  position: absolute;
+  display: block;
+  opacity: 0.55;
+  animation: morph-shape 14s ease-in-out infinite alternate, morph-drift 22s ease-in-out infinite alternate;
+}
+
+.morph-a { top: -90px; left: -80px; width: 320px; height: 320px; background: var(--red); opacity: 0.16; }
+.morph-b { bottom: -110px; left: 38%; width: 280px; height: 280px; background: var(--blue); opacity: 0.28; animation-delay: -5s; }
+.morph-c { top: 18%; right: -90px; width: 240px; height: 240px; background: var(--navy); opacity: 0.12; animation-delay: -9s; }
+
+.give-section .morph-a { background: var(--yellow); opacity: 0.22; }
+.give-section .morph-b { background: #fff; opacity: 0.14; }
+.give-section .morph-c { background: var(--navy); opacity: 0.2; }
+
+@keyframes morph-shape {
+  0% { border-radius: 58% 42% 63% 37% / 45% 55% 45% 55%; }
+  50% { border-radius: 38% 62% 42% 58% / 62% 38% 62% 38%; }
+  100% { border-radius: 65% 35% 55% 45% / 38% 62% 40% 60%; }
+}
+
+@keyframes morph-drift {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  100% { transform: translate(28px, -22px) rotate(40deg) scale(1.18); }
+}
+
+.hero-sun {
+  animation: morph-shape 10s ease-in-out infinite alternate;
+}
+
+/* Hover pop: links, nav tabs, buttons and tiers rise to the foreground */
+.site-nav a,
+.text-link,
+.local-contact,
+.volunteer-contact,
+.volunteer-option a,
+.footer-link,
+.give-footnote a,
+.button,
+.donation-tier,
+.values-band li,
+.questions-list summary {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.site-nav a:not(.nav-give):hover,
+.site-nav a:not(.nav-give):focus-visible {
+  position: relative;
+  z-index: 5;
+  transform: translateY(-3px) scale(1.08);
+  background: var(--yellow);
+  color: var(--navy);
+  box-shadow: 0 8px 18px rgba(16, 45, 75, 0.28);
+}
+
+.text-link:hover,
+.local-contact:hover,
+.volunteer-contact:hover,
+.volunteer-option a:hover,
+.footer-link:hover,
+.give-footnote a:hover,
+.text-link:focus-visible,
+.local-contact:focus-visible,
+.volunteer-contact:focus-visible,
+.volunteer-option a:focus-visible,
+.footer-link:focus-visible,
+.give-footnote a:focus-visible {
+  position: relative;
+  z-index: 5;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.button:hover,
+.button:focus-visible,
+.nav-give:hover,
+.nav-give:focus-visible {
+  position: relative;
+  z-index: 6;
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 16px 28px rgba(10, 34, 59, 0.34);
+}
+
+.donation-tier:hover,
+.donation-tier:focus-visible {
+  position: relative;
+  z-index: 6;
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 16px 28px rgba(10, 34, 59, 0.38);
+}
+
+.values-band li:hover {
+  position: relative;
+  z-index: 4;
+  transform: translateY(-4px) scale(1.12);
+}
+
+.questions-list summary:hover {
+  transform: translateX(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .morph,
+  .hero-sun {
+    animation: none;
+  }
+}
+
+.hero-sun {
+  top: 14px;
+}
