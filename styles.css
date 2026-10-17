@@ -1478,3 +1478,71 @@ body a[href]:hover {
 .hero-sun {
   top: 14px;
 }
+
+/* Polish: color fix, scroll reveal, donate emphasis */
+.hero .morph-b { background: var(--paper); opacity: 0.45; }
+
+.scroll-progress {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--red);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.button-red,
+.nav-give {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-red::after,
+.nav-give::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -60%;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  animation: cta-shine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cta-shine {
+  0%, 70% { left: -60%; }
+  100% { left: 130%; }
+}
+
+.hero-photo img {
+  transition: transform 700ms ease;
+}
+
+.hero-photo:hover img {
+  transform: scale(1.04);
+}
+
+.hero-photo {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-red::after,
+  .nav-give::after { animation: none; display: none; }
+  .reveal-ready .reveal { opacity: 1; transform: none; transition: none; }
+}

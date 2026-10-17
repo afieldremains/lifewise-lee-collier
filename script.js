@@ -27,3 +27,36 @@ if (menuToggle && siteNav) {
     }
   });
 }
+
+const revealTargets = document.querySelectorAll(
+  ".program-section > *, .local-section > *, .volunteer-section > *, .values-band li, .donation-tiers li, .questions-section > *"
+);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if ("IntersectionObserver" in window && !reduceMotion && revealTargets.length) {
+  document.documentElement.classList.add("reveal-ready");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealTargets.forEach((el, i) => {
+    el.classList.add("reveal");
+    el.style.transitionDelay = `${(i % 4) * 70}ms`;
+    observer.observe(el);
+  });
+}
+
+const progressBar = document.createElement("div");
+progressBar.className = "scroll-progress";
+progressBar.setAttribute("aria-hidden", "true");
+document.body.append(progressBar);
+const updateProgress = () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.setProperty("--progress", max > 0 ? window.scrollY / max : 0);
+};
+window.addEventListener("scroll", updateProgress, { passive: true });
+updateProgress();
