@@ -42,7 +42,7 @@ The school-day section uses a single rule and three stops rather than cards. Kee
 
 ## Imagery
 
-- `assets/lifewise-classroom.jpg`: lead classroom image.
+- `assets/lifewise-teacher.jpg`: lead classroom image (teacher with binder); the hero uses its WebP derivatives.
 - `assets/lifewise-bus.jpg`: program-context image.
 - `assets/community-volunteers.jpg`: illustrative community image, not a local LifeWise event.
 

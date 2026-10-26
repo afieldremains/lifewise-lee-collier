@@ -56,7 +56,15 @@ lockup rendered from that vector. Hovering the logo spins and pops the mark
 
 ## Photography
 
-The supplied images are preserved byte-for-byte in `assets/originals/`: classroom
+The hero uses the user's newer teacher photo (`assets/originals/lifewise-teacher.jpg`,
+1549 x 997). It has fewer pixels than the earlier 2000 x 1287 classroom PNG but
+far more real detail, so it renders visibly sharper at every display size. It is
+served as `lifewise-teacher-{800,1200,1549}.webp` plus a 3840 x 2472 Lanczos
+enlargement for high-density screens (an enlargement, not native 4K detail), and
+`assets/lifewise-teacher.jpg` is the social share image. The older classroom
+files remain for banner use.
+
+The other supplied images are preserved byte-for-byte in `assets/originals/`: classroom
 2000 x 1287, bus 2000 x 1228, and illustrative community group 1536 x 1024.
 The page uses quality-95 WebP derivatives at 800, 1200, and original pixel width,
 without upscaling, selected through responsive `srcset`/`sizes`. The existing
@@ -68,7 +76,7 @@ replacement supplied at 1480 x 880. It is preserved unchanged and displayed in
 full without stretching or cropping. Older bus derivatives remain available
 for existing banner assets but are no longer used by the landing page.
 
-The classroom and bus also have 3840-pixel-wide WebP exports (3840 x 2471
+The earlier classroom and the bus also have 3840-pixel-wide WebP exports (3840 x 2471
 and 3840 x 2358), selected only when the responsive image slot and screen density
 need them. These are high-quality Lanczos enlargements of the earlier
 2000-pixel supplied PNGs, not native 4K captures or reconstructed detail.
