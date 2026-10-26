@@ -6,11 +6,26 @@ The Lee + Collier landing page is a county-focused campaign poster built around 
 
 The first viewport exposes both primary actions: donate through the official checkout or jump to volunteer pathways. Keep volunteer choices as an open editorial list rather than cards, and label LifeWise’s Street Team, launch, and church resources as general pathways until local availability is confirmed.
 
+## LifeWise.org alignment
+
+The page mirrors lifewise.org's look: Lato body and headings, Bebas Neue for the
+uppercase hero and band headings (Google Fonts stand-ins for LifeWise's Typekit
+lato and bebas-kai), a #333 top ribbon, full-width red header with an outlined
+white Volunteer pill and a yellow Donate pill, a centred red-tinted photo hero,
+then alternating red, sage (`#afcbc7`), white, and #333 bands, a light gray
+(`#f2f2f2`) footer and a red Prime credit bar. Buttons are 50px pills.
+Florida sun, waves, beach, and bubbles stay as campaign accents. Do not copy or
+hotlink LifeWise.org logo files. Yellow on red is large-text only (~3.5:1);
+use deep red `#a8242a` for small red text on sage or gray.
+
 ## Palette
 
 - LifeWise red: `#cf3339`
 - LifeWise yellow: `#f6d44d`
 - LifeWise blue: `#00bfed`
+- Charcoal: `#333333` (header ribbon, values band, sun disc)
+- Sage: `#afcbc7`
+- Footer gray: `#f2f2f2`
 - Navy ink: `#102d4b`
 - Deep navy: `#0a223b`
 - Paper: `#fffdf7`
