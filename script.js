@@ -2,7 +2,8 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector("#site-nav");
 
 if (menuToggle && siteNav) {
-  const closeMenu = () => {
+  const closeMenu = (restoreFocus = false) => {
+    if (restoreFocus && siteNav.contains(document.activeElement)) menuToggle.focus();
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "Open navigation");
     siteNav.classList.remove("is-open");
@@ -17,13 +18,13 @@ if (menuToggle && siteNav) {
 
   siteNav.addEventListener("click", (event) => {
     if (event.target instanceof Element && event.target.closest("a")) {
-      closeMenu();
+      closeMenu(true);
     }
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      closeMenu();
+      closeMenu(true);
     }
   });
 }
@@ -32,6 +33,31 @@ const revealTargets = document.querySelectorAll(
   ".program-section > :not(.morph-field), .local-section > :not(.morph-field):not(.county-stamp), .volunteer-section > :not(.morph-field), .values-band li, .donation-tiers li, .questions-section > :not(.morph-field)"
 );
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let motionPaused = reduceMotion;
+const motionToggle = document.querySelector(".motion-toggle");
+if (motionToggle && !reduceMotion) {
+  motionToggle.hidden = false;
+  motionToggle.addEventListener("click", () => {
+    motionPaused = !motionPaused;
+    document.documentElement.classList.toggle("motion-paused", motionPaused);
+    motionToggle.setAttribute("aria-pressed", String(motionPaused));
+    motionToggle.textContent = motionPaused ? "Resume animations" : "Pause animations";
+    document.querySelectorAll("svg").forEach((svg) => {
+      if (motionPaused) svg.pauseAnimations();
+      else svg.unpauseAnimations();
+    });
+  });
+}
+if (reduceMotion) document.querySelectorAll("svg animate").forEach((el) => el.remove());
+
+const amountInputs = document.querySelectorAll(".other-amount input[name='amount']");
+amountInputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    if (input.value) amountInputs.forEach((other) => {
+      if (other !== input) other.value = "";
+    });
+  });
+});
 
 if ("IntersectionObserver" in window && !reduceMotion && revealTargets.length) {
   document.documentElement.classList.add("reveal-ready");
@@ -59,6 +85,8 @@ const updateProgress = () => {
   progressBar.style.setProperty("--progress", max > 0 ? window.scrollY / max : 0);
 };
 window.addEventListener("scroll", updateProgress, { passive: true });
+window.addEventListener("resize", updateProgress);
+window.addEventListener("load", updateProgress);
 updateProgress();
 
 /* ===== Motion v2 ===== */
@@ -127,6 +155,7 @@ const trackPointer = (el, apply) => {
   };
   const kick = () => { if (!raf) raf = requestAnimationFrame(step); };
   el.addEventListener("pointermove", (e) => {
+    if (motionPaused) return;
     const r = el.getBoundingClientRect();
     tx = (e.clientX - r.left) / r.width - 0.5;
     ty = (e.clientY - r.top) / r.height - 0.5;
@@ -154,6 +183,7 @@ if (finePointer && !reduceMotion) {
 
   document.querySelectorAll(".button, .nav-give, .donate-pill").forEach((el) => {
     el.addEventListener("pointermove", (e) => {
+      if (motionPaused) return;
       const r = el.getBoundingClientRect();
       el.style.setProperty("--tx", `${clamp((e.clientX - r.left - r.width / 2) * 0.22, -10, 10).toFixed(1)}px`);
       el.style.setProperty("--ty", `${clamp((e.clientY - r.top - r.height / 2) * 0.28, -8, 8).toFixed(1)}px`);
@@ -166,6 +196,7 @@ if (finePointer && !reduceMotion) {
 
   document.querySelectorAll(".donation-tier").forEach((el) => {
     el.addEventListener("pointermove", (e) => {
+      if (motionPaused) return;
       const r = el.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width;
       const y = (e.clientY - r.top) / r.height;
@@ -200,7 +231,7 @@ let ticking = false;
 const onScroll = () => {
   ticking = false;
   const vh = window.innerHeight;
-  if (!reduceMotion) {
+  if (!motionPaused) {
     morphFields.forEach((field) => {
       if (!field.parentElement || field.parentElement.classList.contains("hero")) return;
       const r = field.parentElement.getBoundingClientRect();
@@ -213,7 +244,10 @@ const onScroll = () => {
     const pastHero = heroEl.getBoundingClientRect().bottom < vh * 0.15;
     const giveRect = giveEl.getBoundingClientRect();
     const inGive = giveRect.top < vh * 0.7 && giveRect.bottom > vh * 0.2;
-    pill.classList.toggle("is-shown", pastHero && !inGive);
+    const shown = pastHero && !inGive;
+    pill.classList.toggle("is-shown", shown);
+    pill.setAttribute("aria-hidden", String(!shown));
+    pill.tabIndex = shown ? 0 : -1;
   }
 };
 

@@ -13,3 +13,31 @@ GitHub Actions deploys the site to GitHub Pages whenever a commit is pushed to `
 Banner sources live in `banners/src`. Rebuild with `python banners/build.py` and re-render previews with `python banners/render.py` (needs Playwright and Pillow).
 
 Donations are processed by LifeWise Academy's official giving checkout.
+
+## Photography
+
+The supplied images are preserved byte-for-byte in `assets/originals/`: classroom
+2000 x 1287, bus 2000 x 1228, and illustrative community group 1536 x 1024.
+The page uses quality-95 WebP derivatives at 800, 1200, and original pixel width,
+without upscaling, selected through responsive `srcset`/`sizes`. The existing
+full-size JPEGs remain available for banner sources and social sharing.
+The community image is illustrative, not evidence of a local event.
+
+## Giving and launch checks
+
+Donation tiers and the two custom-amount forms pass `amount` to the official
+checkout. Each form submits only its own amount, and entering an amount clears
+the other field. Both require at least $1 and accept cents. They work without
+JavaScript using native browser validation and GET navigation.
+
+The checkout's acceptance of the amount parameter and default gift frequency
+must be checked manually before promoting the campaign: its Cloudflare service
+blocked automated browser inspection during the October 26, 2026 launch pass.
+No payment or personal-data form was submitted. Copy therefore asks donors to
+confirm amount, frequency (choose One time for a year-end gift), and program.
+Local program availability and gift designation remain unverified.
+
+Use the HTTPS live URL above, not an old `file://` preview. Publishing updates
+GitHub Pages; it does not update another local checkout or a browser tab opened
+from that checkout. CSS/JS use release query strings and responsive photos use
+new filenames to avoid stale cached assets.
