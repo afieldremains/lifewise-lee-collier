@@ -14,6 +14,16 @@ Banner sources live in `banners/src`. Rebuild with `python banners/build.py` and
 
 Donations are processed by LifeWise Academy's official giving checkout.
 
+## Campaign branding and navigation
+
+The Florida sun badge is a campaign-specific navigation treatment, not a claim
+of a new official LifeWise logo. Tap/click its labeled native disclosure to reach
+giving, program information, local support, volunteer options, or the giving
+FAQ. It works without JavaScript; enhanced behavior closes on Escape, outside
+click, or selection, and moves keyboard focus to the destination.
+Editable instances of "Academy" in LifeWise branding and page copy use brand
+yellow on navy for contrast. Text embedded in supplied photographs is unchanged.
+
 ## Photography
 
 The supplied images are preserved byte-for-byte in `assets/originals/`: classroom

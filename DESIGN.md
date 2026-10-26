@@ -18,6 +18,16 @@ The first viewport exposes both primary actions: donate through the official che
 
 Use red, yellow, and blue as large, deliberate fields, with navy for readable text and structure. Keep body copy on paper or navy surfaces; use white text on red and navy text on yellow.
 
+Editable "Academy" text in LifeWise branding and copy is yellow on a navy
+backing so it remains readable on light surfaces. Preserve supplied photos;
+do not recolor lettering embedded in them.
+
+The hero's Florida sun badge combines the campaign's LifeWise wordmark with
+red rays and a navy disc. Its labeled native disclosure opens quick navigation
+with giving first, then program, local support, volunteering, and the giving FAQ.
+Keep it in normal flow rather than covering copy or photography; preserve
+keyboard activation, visible focus, Escape dismissal, and no-JavaScript use.
+
 ## Type and layout
 
 Use Roboto with Arial fallback. Headlines are heavy, tightly tracked, and balanced; body text stays comfortable to read. Keep the wide desktop hero split between a yellow copy field and classroom photography. At narrow widths, stack copy before imagery so the local offer and donation action remain first.

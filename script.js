@@ -29,6 +29,31 @@ if (menuToggle && siteNav) {
   });
 }
 
+const sunNav = document.querySelector(".sun-nav");
+if (sunNav) {
+  const sunSummary = sunNav.querySelector("summary");
+  const closeSunNav = () => {
+    if (sunNav.contains(document.activeElement)) sunSummary.focus();
+    sunNav.open = false;
+  };
+  sunNav.addEventListener("click", (event) => {
+    const link = event.target instanceof Element ? event.target.closest("a[href^='#']") : null;
+    if (!link) return;
+    closeSunNav();
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && sunNav.open) closeSunNav();
+  });
+  document.addEventListener("click", (event) => {
+    if (sunNav.open && !sunNav.contains(event.target)) closeSunNav();
+  });
+}
+
 const revealTargets = document.querySelectorAll(
   ".program-section > :not(.morph-field), .local-section > :not(.morph-field):not(.county-stamp), .volunteer-section > :not(.morph-field), .values-band li, .donation-tiers li, .questions-section > :not(.morph-field)"
 );
