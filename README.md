@@ -23,6 +23,14 @@ without upscaling, selected through responsive `srcset`/`sizes`. The existing
 full-size JPEGs remain available for banner sources and social sharing.
 The community image is illustrative, not evidence of a local event.
 
+The classroom and bus also have 3840-pixel-wide WebP exports (3840 x 2471
+and 3840 x 2358), selected only when the responsive image slot and screen density
+need them. These are high-quality Lanczos enlargements of the earlier
+2000-pixel supplied PNGs, not native 4K captures or reconstructed detail.
+The newly reattached 474-pixel JPEGs were not used to replace those better
+sources. Photo zoom/parallax is disabled to avoid needless magnification and
+moving crops; images retain their aspect ratio with responsive cover framing.
+
 ## Giving and launch checks
 
 Donation tiers and the two custom-amount forms pass `amount` to the official

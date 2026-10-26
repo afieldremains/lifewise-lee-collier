@@ -192,7 +192,7 @@ summary:focus-visible {
   flex-direction: column;
   justify-content: center;
   justify-self: end;
-  padding: 68px clamp(32px, 6.4vw, 100px) 58px max(24px, calc((100vw - var(--content-width)) / 2));
+  padding: 68px clamp(32px, 6.4vw, 100px) 58px 24px;
 }
 
 .hero h1,
@@ -296,6 +296,8 @@ summary:focus-visible {
 }
 
 .hero-photo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   min-height: 590px;
@@ -1539,7 +1541,7 @@ body a[href]:hover {
 }
 
 .hero-photo:hover img {
-  transform: scale(1.04);
+  transform: none;
 }
 
 .hero-photo {
@@ -1697,18 +1699,12 @@ html {
 }
 
 .hero-photo img {
-  scale: 1.1;
-  translate: calc(var(--mx, 0) * -14px) calc(var(--my, 0) * -10px);
-  animation: ken-burns 24s ease-in-out infinite alternate;
-}
-
-@keyframes ken-burns {
-  from { transform: scale(1) translate(0, 0); }
-  to { transform: scale(1.06) translate(-1.2%, 0.8%); }
+  scale: 1;
+  translate: none;
 }
 
 .hero-photo:hover img {
-  transform: scale(1.04);
+  transform: none;
 }
 
 /* Timeline rail draws itself */
@@ -1776,10 +1772,6 @@ html {
 /* Local section */
 .local-photo {
   overflow: hidden;
-}
-
-.local-photo img {
-  animation: ken-burns 28s ease-in-out infinite alternate-reverse;
 }
 
 .reveal-ready .local-photo img {
