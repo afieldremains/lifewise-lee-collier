@@ -432,12 +432,13 @@ if (shoreline && "IntersectionObserver" in window) {
 /* ===== Brand bubbles: faint LifeWise and Prime Digital Connect marks drifting in the water ===== */
 const bubbleMarks = {
   lifewise: '<img src="assets/lifewise-crest-white.webp?v=20261026-bubbles" width="1079" height="805" alt="" decoding="async">',
-  prime: '<svg viewBox="0 0 182 241" focusable="false"><rect x="0" y="2" width="61" height="239" rx="30.5" fill="#00a3ff"/><circle cx="99" cy="84" r="57.5" fill="none" stroke="#ff2d87" stroke-width="51"/><rect x="34" y="108" width="72" height="72" fill="#ffd500"/></svg>'
+  prime: '<svg class="bb-color" viewBox="0 0 74 98" focusable="false"><rect x="0" y="1" width="24" height="96" rx="12" fill="#1d4ed8"/><circle cx="39.5" cy="33.5" r="23.5" fill="none" stroke="#e1251b" stroke-width="20"/><path fill="#fff" d="M15.5 24.5C16.3 30.6 17.6 32.4 22.5 33.5C17.6 34.6 16.3 36.4 15.5 42.5C14.7 36.4 13.4 34.6 8.5 33.5C13.4 32.4 14.7 30.6 15.5 24.5Z"/></svg>',
+  primeMono: '<svg class="bb-mono" viewBox="0 0 182 175" focusable="false"><rect x="0" y="25" width="35" height="150" fill="currentColor"/><path d="M42 40H95A42.5 42.5 0 0 1 95 125H42" fill="none" stroke="currentColor" stroke-width="30"/><rect x="157" y="13" width="10" height="10" fill="currentColor"/><rect x="176" y="0" width="6" height="6" fill="currentColor"/></svg>'
 };
 // Each spec: [left %, top %, size factor, drift seconds, phase seconds, sway px, bob px]
 const bubbleLayer = (className, specs) => `<div class="brand-bubbles ${className}" aria-hidden="true">${specs.map(([x, y, s, d, phase, dx, dy], i) => {
   const kind = i % 2 ? "prime" : "lifewise";
-  return `<span class="brand-bubble is-${kind}" style="--x:${x}%;--y:${y}%;--s:${s};--d:${d}s;--phase:-${phase}s;--dx:${dx}px;--dy:${dy}px"><span class="bb-mark">${bubbleMarks[kind]}</span></span>`;
+  return `<span class="brand-bubble is-${kind}" style="--x:${x}%;--y:${y}%;--s:${s};--d:${d}s;--phase:-${phase}s;--dx:${dx}px;--dy:${dy}px"><span class="bb-mark">${kind === "prime" && i % 4 === 3 ? bubbleMarks.primeMono : bubbleMarks[kind]}</span></span>`;
 }).join("")}</div>`;
 if (shoreline) {
   shoreline.insertAdjacentHTML("beforeend", bubbleLayer("shore-bubbles", [

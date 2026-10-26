@@ -49,10 +49,22 @@ contact routes.
 ## Credit
 
 The footer credits the page as a Prime Digital Connect™ Concept.
-The mark is rebuilt as vector (`assets/prime-digital-connect-mark.svg`) so it is
-sharp at any size; `assets/prime-digital-connect-logo-4k.png` is a 3840x3840
-lockup rendered from that vector. Hovering the logo spins and pops the mark
-(disabled for reduced motion).
+The main footer logo is the red, blue and yellow Prime "P" with the star, rebuilt as
+vector from the supplied logo (`assets/prime-mark-color.svg`, also copied to
+`assets/prime-digital-connect-mark.svg`); `assets/prime-digital-connect-logo-4k.png`
+is a transparent 3840x3840 render of that vector. Hovering the logo spins and pops
+the mark, twinkles the star and turns the chip Prime yellow (the on-yellow variant);
+motion is disabled for reduced motion.
+
+Variations, all vector:
+
+- `assets/prime-logo-yellow.svg`: colour mark with PRIME / DIGITAL CONNECT on yellow.
+- `assets/prime-logo-mono-light.svg` and `assets/prime-logo-mono-dark.svg`: monochrome
+  P and PRIME wordmark, black on white and white on black.
+- `assets/prime-mark-mono.svg`: the monochrome P alone (`currentColor`).
+
+On the page, the faint water bubbles alternate the LifeWise crest, the colour Prime mark
+and the white monochrome Prime mark.
 
 ## Photography
 

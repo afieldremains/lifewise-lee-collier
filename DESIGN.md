@@ -52,8 +52,8 @@ Do not caption the supplied imagery as a Lee or Collier County event.
 
 Use native links, buttons, and disclosure elements. The mobile navigation must expose its expanded state and close on link activation or Escape. Preserve visible keyboard focus and honor reduced-motion preferences. Authored motion: hero-photo reveal, the pulsing sun and its scroll flight to a docked controller, the wave-crash transition into the giving section, shoreline lapping, and the Prime Digital Connect logo's spin-and-pop hover. All of it stops for reduced motion and the Pause animations control.
 
-The footer studio credit sits on a white chip so the logo's multiply-blended overlaps (blue, pink, and yellow) render true.
+The footer studio credit uses the Prime colour mark (blue #1d4ed8 stem, red #e1251b ring, white star) on a white chip; hover turns the chip Prime yellow #f7c400, echoing the on-yellow logo variant. Monochrome and on-yellow lockups live in `assets/prime-logo-*.svg`.
 
-Brand bubbles are decorative (`aria-hidden`). Keep their marks faint (crest about 30% opacity, Prime mark about 20%) so they read as texture, never as content, and animate only transform-based properties.
+Brand bubbles are decorative (`aria-hidden`). Keep their marks faint (crest about 30% opacity, Prime colour and white monochrome marks about 20%) so they read as texture, never as content, and animate only transform-based properties.
 
 The quick-give card is the boldest donation surface: a yellow card with a red offset shadow, navy amount chips and a red full-width CTA. Keep small text on yellow navy (red fails contrast below large-text sizes). The floating donate pill hides while this card or the giving section is on screen.
