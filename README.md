@@ -24,12 +24,23 @@ click, or selection, and moves keyboard focus to the destination.
 Editable instances of "Academy" in LifeWise branding and page copy use brand
 yellow on navy for contrast. Text embedded in supplied photographs is unchanged.
 
-The sun uses a warm yellow disc and tapered golden rays that gently pulse
-outward. Its radiating ring and rays pause offscreen, when the document is
-hidden, or through the page's Pause animations control; reduced-motion and
-no-JavaScript views stay static. Lightweight layered SVG ocean-wave dividers
-bridge the hero/program and giving/FAQ sections without adding motion or
-interfering with navigation.
+The sun keeps its LifeWise badge look (red tick rays, navy disc, yellow
+"Academy") with larger pulsing rays and corona. As visitors scroll, it flies
+from the hero to a docked page controller (right edge on desktop, bottom-left on
+phones, tucking away while reading down) with a scroll-progress orbit and the
+current section marked. Every "Donate now" link goes to the on-page giving
+section through a full-screen wave crash that recedes onto an SVG beach; the
+donation tiers and Other amount form still open the official checkout. Reduced
+motion, the Pause animations control, and no-JavaScript views skip the crash and
+keep the sun static. Layered SVG wave dividers bridge sections.
+
+## Credit
+
+The footer credits the page as a Prime Digital Connect™ creation and project.
+The mark is rebuilt as vector (`assets/prime-digital-connect-mark.svg`) so it is
+sharp at any size; `assets/prime-digital-connect-logo-4k.png` is a 3840x3840
+lockup rendered from that vector. Hovering the logo spins and pops the mark
+(disabled for reduced motion).
 
 ## Photography
 

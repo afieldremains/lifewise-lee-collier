@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <g stroke="#cf3339" stroke-width="4" stroke-linecap="round">
+    <path d="M32 2v9M32 53v9M2 32h9M53 32h9M10.8 10.8l6.4 6.4M46.8 46.8l6.4 6.4M10.8 53.2l6.4-6.4M46.8 17.2l6.4-6.4"/>
+  </g>
+  <circle cx="32" cy="32" r="19" fill="#102d4b" stroke="#ffd200" stroke-width="4"/>
+  <text x="32" y="38" fill="#ffd200" font-family="Arial, sans-serif" font-size="17" font-weight="900" text-anchor="middle">LW</text>
+</svg>

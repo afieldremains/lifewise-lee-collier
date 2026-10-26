@@ -50,4 +50,6 @@ Do not caption the supplied imagery as a Lee or Collier County event.
 
 ## Interaction and accessibility
 
-Use native links, buttons, and disclosure elements. The mobile navigation must expose its expanded state and close on link activation or Escape. Preserve visible keyboard focus and honor reduced-motion preferences. Hero-photo reveal is the only authored entrance motion.
+Use native links, buttons, and disclosure elements. The mobile navigation must expose its expanded state and close on link activation or Escape. Preserve visible keyboard focus and honor reduced-motion preferences. Authored motion: hero-photo reveal, the pulsing sun and its scroll flight to a docked controller, the wave-crash transition into the giving section, shoreline lapping, and the Prime Digital Connect logo's spin-and-pop hover. All of it stops for reduced motion and the Pause animations control.
+
+The footer studio credit sits on a white chip so the logo's multiply-blended overlaps (blue, pink, and yellow) render true.

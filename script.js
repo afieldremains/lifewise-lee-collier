@@ -296,3 +296,204 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 window.addEventListener("resize", onScroll);
 onScroll();
+/* ===== Sun flight: the badge rides from the hero to a side dock as the page scrolls ===== */
+const sunSlotTarget = sunNav && document.querySelector("main");
+const lerp = (a, b, t) => a + (b - a) * t;
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+if (sunNav && sunSlotTarget) {
+  const slot = document.createElement("div");
+  slot.className = "sun-slot";
+  slot.setAttribute("aria-hidden", "true");
+  sunNav.before(slot);
+  sunSlotTarget.before(sunNav);
+  document.documentElement.classList.add("sun-flight");
+
+  const orbitFill = sunNav.querySelector(".sun-orbit-fill");
+  const sunLinks = [...sunNav.querySelectorAll(".sun-links a[href^='#']")];
+  const sectionFor = (link) => {
+    const target = document.querySelector(link.getAttribute("href"));
+    return target && target.id !== "top" ? target.closest("section") || target : null;
+  };
+  const tracked = sunLinks.map((link) => [link, sectionFor(link)]).filter(([, section]) => section);
+  let wasDocked = false;
+  let tucked = false;
+  let lastScrollY = window.scrollY;
+  let flightQueued = false;
+
+  const flySun = () => {
+    flightQueued = false;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const compact = vw <= 680;
+    const dockSize = compact ? 64 : vw <= 1100 ? 74 : 88;
+    const slotRect = slot.getBoundingClientRect();
+    const raw = clamp(window.scrollY / (vh * 0.55), 0, 1);
+    const stepped = reduceMotion || motionPaused;
+    const t = stepped ? (raw > 0.5 ? 1 : 0) : easeInOut(raw);
+    const BASE = 112;
+    const size = lerp(BASE, dockSize, t);
+    const endX = compact ? 16 : vw - dockSize - (vw <= 1100 ? 16 : 28);
+    const endY = compact ? vh - dockSize - 16 : vh / 2 - dockSize / 2;
+    let x;
+    let y;
+    let s = size;
+    if (compact && !stepped) {
+      // Small screens: the sun sets into the hero, then rises in the corner instead of crossing the copy.
+      const setting = t < 0.5;
+      const phase = setting ? t * 2 : (t - 0.5) * 2;
+      s = setting ? lerp(BASE, 0, phase) : lerp(0, dockSize, phase);
+      const centerShift = (BASE - s) / 2;
+      x = setting ? slotRect.left + centerShift : endX;
+      y = setting ? slotRect.top + centerShift + phase * 40 : endY + (1 - phase) * 40;
+    } else {
+      const arc = stepped ? 0 : Math.sin(Math.PI * t) * Math.min(120, vh * 0.14);
+      x = lerp(slotRect.left, endX, t);
+      y = lerp(slotRect.top, endY, t) - arc;
+    }
+    const docked = t >= 0.999;
+    // Tablets and phones: tuck the docked sun aside while reading downward, bring it back on scroll up.
+    if (docked && vw <= 1100 && !sunNav.open && !sunNav.contains(document.activeElement)) {
+      const delta = window.scrollY - lastScrollY;
+      if (delta > 6) tucked = true;
+      else if (delta < -6) tucked = false;
+    } else {
+      tucked = false;
+    }
+    lastScrollY = window.scrollY;
+
+    // Read every section position before writing styles to avoid forced layouts.
+    const max = document.documentElement.scrollHeight - vh;
+    let current = null;
+    tracked.forEach(([link, section]) => {
+      const r = section.getBoundingClientRect();
+      if (r.top < vh * 0.45 && r.bottom > vh * 0.25) current = link;
+    });
+
+    sunNav.classList.toggle("is-tucked", tucked);
+    if (tucked) x = compact ? -dockSize - 24 : vw + 24;
+    // The badge keeps a fixed 112px layout box and is scaled around its center, so flight never triggers layout.
+    const k = Math.max(s / BASE, 0.001);
+    const shift = (BASE / 2) * (1 - k);
+    sunNav.style.transform = `translate3d(${(x - shift).toFixed(1)}px, ${(y - shift).toFixed(1)}px, 0)`;
+    sunNav.style.setProperty("--sun-scale", k.toFixed(4));
+    sunNav.style.setProperty("--sun-inset", `${((BASE - dockSize) / 2).toFixed(1)}px`);
+    sunNav.style.setProperty("--sun-fade", clamp(1 - t * 3, 0, 1).toFixed(3));
+    sunNav.style.setProperty("--sun-spin", `${stepped ? 0 : (window.scrollY * 0.12) % 360}deg`);
+    sunNav.classList.toggle("is-airborne", t > 0.34);
+    if (docked !== wasDocked) {
+      if (sunNav.open) sunNav.open = false;
+      wasDocked = docked;
+    }
+    sunNav.classList.toggle("is-docked", docked);
+
+    if (orbitFill) orbitFill.style.strokeDashoffset = String(1 - (max > 0 ? window.scrollY / max : 0));
+    sunLinks.forEach((link) => {
+      if (link === current) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+  };
+  const queueFlight = () => {
+    if (!flightQueued) {
+      flightQueued = true;
+      requestAnimationFrame(flySun);
+    }
+  };
+  window.addEventListener("scroll", queueFlight, { passive: true });
+  window.addEventListener("resize", queueFlight);
+  window.addEventListener("load", queueFlight);
+  if (motionToggle) motionToggle.addEventListener("click", queueFlight);
+  sunNav.addEventListener("focusin", queueFlight);
+  flySun();
+}
+
+/* ===== Shoreline: lap only while visible ===== */
+const shoreline = document.querySelector(".shoreline");
+if (shoreline && "IntersectionObserver" in window) {
+  new IntersectionObserver(([entry]) => shoreline.classList.toggle("in-view", entry.isIntersecting)).observe(shoreline);
+}
+
+/* ===== Wave crash into the giving section ===== */
+const crashMarkup = `
+  <div class="crash-layer crash-deep"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><path d="M0 170C160 90 330 60 500 110S820 210 1000 120 1300 40 1440 90V1300H0Z" fill="#0a223b"/></svg></div>
+  <div class="crash-layer crash-ocean"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><path d="M0 120C200 40 380 30 560 90S860 200 1060 100 1320 30 1440 70V1300H0Z" fill="#0a7fb8"/></svg></div>
+  <div class="crash-layer crash-front"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><defs><linearGradient id="crash-blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00bfed"/><stop offset="0.45" stop-color="#0a9fd6"/><stop offset="1" stop-color="#0a5f94"/></linearGradient></defs><path d="M0 200C140 120 300 100 470 150S760 240 960 150 1260 70 1440 130V1300H0Z" fill="url(#crash-blue)"/><path d="M0 200C140 120 300 100 470 150S760 240 960 150 1260 70 1440 130" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round"/><g fill="#fff"><circle cx="90" cy="150" r="22"/><circle cx="260" cy="118" r="30"/><circle cx="420" cy="146" r="18"/><circle cx="610" cy="196" r="26"/><circle cx="790" cy="214" r="20"/><circle cx="980" cy="138" r="32"/><circle cx="1150" cy="98" r="22"/><circle cx="1330" cy="102" r="28"/></g><g fill="#fff" opacity="0.55"><circle cx="180" cy="230" r="9"/><circle cx="520" cy="250" r="7"/><circle cx="880" cy="270" r="10"/><circle cx="1240" cy="190" r="8"/><circle cx="700" cy="320" r="6"/><circle cx="340" cy="300" r="7"/></g></svg></div>
+  <div class="crash-foam"></div>
+  <div class="crash-layer crash-lace"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><g fill="none" stroke="#fff" stroke-linecap="round" opacity="0.8"><path d="M0 260C160 220 300 300 470 250S760 330 960 260 1260 200 1440 250" stroke-width="10"/><path d="M0 330C200 290 340 360 560 320S880 380 1060 330 1320 290 1440 320" stroke-width="5" stroke-dasharray="18 22"/></g></svg></div>`;
+let waveCrash = null;
+let crashing = false;
+const landOnGive = () => {
+  const give = document.getElementById("give");
+  if (!give) return;
+  const anchor = shoreline || give;
+  const top = anchor.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top, behavior: "instant" });
+  if (location.hash !== "#give") history.pushState(null, "", "#give");
+  give.setAttribute("tabindex", "-1");
+  give.focus({ preventScroll: true });
+};
+const buildCrash = () => {
+  if (waveCrash) return;
+  waveCrash = document.createElement("div");
+  waveCrash.className = "wave-crash";
+  waveCrash.setAttribute("aria-hidden", "true");
+  waveCrash.innerHTML = crashMarkup;
+  document.body.append(waveCrash);
+};
+// Parse the wave layers ahead of time so the first crash starts on a clean frame.
+if (!reduceMotion && Element.prototype.animate) {
+  const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 600));
+  window.addEventListener("load", () => idle(buildCrash), { once: true });
+}
+const crashToGive = async () => {
+  if (crashing) return;
+  if (reduceMotion || motionPaused || !Element.prototype.animate) {
+    landOnGive();
+    return;
+  }
+  crashing = true;
+  buildCrash();
+  // Warm up the destination's lazy images while the wave rises, so the reveal doesn't hitch.
+  document.querySelectorAll("#give img[loading='lazy']").forEach((img) => {
+    img.loading = "eager";
+    if (img.decode) img.decode().catch(() => {});
+  });
+  const layers = [...waveCrash.querySelectorAll(".crash-layer")];
+  waveCrash.classList.add("is-crashing");
+  try {
+    const rise = layers.map((layer, i) => layer.animate([
+      { transform: "translate3d(-7%, 110%, 0) skewX(-10deg)" },
+      { transform: "translate3d(-1%, -12%, 0) skewX(3deg)", offset: 0.82 },
+      { transform: "translate3d(0, -20%, 0) skewX(0deg)" }
+    ], { duration: 900, delay: i * 80, easing: "cubic-bezier(0.5, 0.05, 0.3, 1)", fill: "forwards" }));
+    await Promise.all(rise.map((a) => a.finished));
+    const foam = waveCrash.querySelector(".crash-foam");
+    const flash = foam.animate([
+      { opacity: 0, transform: "scale(1.15)" },
+      { opacity: 0.62, transform: "scale(1)", offset: 0.3 },
+      { opacity: 0, transform: "scale(1.05) translateY(8%)" }
+    ], { duration: 900, easing: "ease-out", fill: "forwards" });
+    landOnGive();
+    if (shoreline) {
+      shoreline.classList.remove("is-washed");
+      void shoreline.offsetWidth;
+      shoreline.classList.add("is-washed");
+    }
+    // The front water pulls back first, the deeper layers trail it, and the lace foam fades last.
+    const order = [2, 1, 0, 3];
+    const recede = layers.map((layer, i) => layer.animate([
+      { transform: "translate3d(0, -20%, 0)", opacity: 1 },
+      { transform: `translate3d(${i % 2 ? 3 : -3}%, 112%, 0)`, opacity: i === 3 ? 0 : 1 }
+    ], { duration: i === 3 ? 1100 : 720, delay: 120 + order.indexOf(i) * 70, easing: "cubic-bezier(0.6, 0, 0.75, 0.3)", fill: "forwards" }));
+    await Promise.all(recede.concat(flash).map((a) => a.finished));
+    rise.concat(recede, flash).forEach((a) => a.cancel());
+  } finally {
+    waveCrash.classList.remove("is-crashing");
+    crashing = false;
+  }
+};
+document.addEventListener("click", (event) => {
+  const link = event.target instanceof Element ? event.target.closest("a[href='#give']") : null;
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  crashToGive();
+});
