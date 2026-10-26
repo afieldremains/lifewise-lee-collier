@@ -39,6 +39,12 @@ Each carries a near-transparent LifeWise Academy crest or Prime Digital Connect
 mark as subtle branding. The crest (`assets/lifewise-crest-white.webp`, 1079x805)
 is keyed from the supplied white-on-gray logo with no enlargement. The bubbles
 animate only while visible and stay still for reduced motion or when paused.
+Visitors can pop shoreline bubbles with a hover or tap; they reform a moment later.
+
+The local section holds a one-tap giving card: four amount chips open the official
+checkout directly, and "See every way to give" triggers the wave crash into the
+giving section. The page links only to the official checkout, with no direct
+contact routes.
 
 ## Credit
 

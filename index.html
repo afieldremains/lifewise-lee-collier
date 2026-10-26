@@ -20,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/lifewise-classroom-3840.webp" imagesrcset="assets/lifewise-classroom-800.webp 800w, assets/lifewise-classroom-1200.webp 1200w, assets/lifewise-classroom-2000.webp 2000w, assets/lifewise-classroom-3840.webp 3840w" imagesizes="(max-width: 680px) 800px, (max-width: 2400px) 1200px, 50vw">
-  <link rel="stylesheet" href="styles.css?v=20261028-bubbles">
-  <script src="script.js?v=20261028-bubbles" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261029-quickgive">
+  <script src="script.js?v=20261029-quickgive" defer></script>
 </head>
 <body>
   <!--
@@ -138,8 +138,14 @@
       <div class="local-copy">
         <h2 id="local-title">Local support can open a door.</h2>
         <p>Every community has its own path. A gift through LifeWise can support a local program when one is available to select in the official giving flow.</p>
-        <p class="local-note">Not sure whether Lee or Collier is listed? Contact LifeWise to ask about local availability and gift designation before giving.</p>
-        <a class="local-contact" href="mailto:info@lifewise.org?subject=Lee%20and%20Collier%20County%20giving">Ask LifeWise about local giving <span aria-hidden="true">-&gt;</span></a>
+        <div class="quick-give" aria-labelledby="quick-give-title">
+          <svg class="quick-burst" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M100 0l7 70h-14zM100 200l-7-70h14zM0 100l70-7v14zM200 100l-70 7v-14zM29 29l55 46-9 9zM171 171l-55-46 9-9zM29 171l46-55 9 9zM171 29l-46 55-9-9z"/></g></svg>
+          <svg class="quick-wave" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 18C50 4 90 32 140 18S240 4 290 18 360 30 400 16V40H0Z" fill="#00bfed"/><path d="M0 28C60 16 100 40 160 28S260 16 320 28 380 36 400 26V40H0Z" fill="#102d4b"/></svg>
+          <p class="quick-kicker">Give in one tap</p>
+          <h3 id="quick-give-title">Make waves <span>with a gift today.</span></h3>
+          <ul class="quick-chips"><li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=25" target="_blank" rel="noopener noreferrer"><strong>$25</strong><span class="visually-hidden"> donation, opens LifeWise checkout in a new tab</span></a></li><li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=100" target="_blank" rel="noopener noreferrer"><strong>$100</strong><span class="visually-hidden"> donation, opens LifeWise checkout in a new tab</span></a></li><li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=250" target="_blank" rel="noopener noreferrer"><strong>$250</strong><span class="visually-hidden"> donation, opens LifeWise checkout in a new tab</span></a></li><li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=500" target="_blank" rel="noopener noreferrer"><strong>$500+</strong><span class="visually-hidden"> donation, opens LifeWise checkout in a new tab</span></a></li></ul>
+          <a class="button button-red quick-cta" href="#give">See every way to give <span aria-hidden="true">-&gt;</span></a>
+        </div>
       </div>
       <div class="county-stamp" aria-hidden="true">LOCAL<br>MATTERS</div>
     </section>
@@ -167,8 +173,7 @@
           <a href="https://lifewise.org/churchtoolkit/" target="_blank" rel="noopener noreferrer">Open the church liaison toolkit <span aria-hidden="true">-&gt;</span></a>
         </article>
       </div>
-      <p class="volunteer-note">These are LifeWise’s general pathways, not confirmation of an active program or volunteer opening in Lee or Collier County. Contact LifeWise to ask what’s available locally.</p>
-      <a class="volunteer-contact" href="mailto:info@lifewise.org?subject=Volunteering%20in%20Lee%20or%20Collier%20County">Ask LifeWise about local volunteer options <span aria-hidden="true">-&gt;</span></a>
+      <p class="volunteer-note">These are LifeWise’s general pathways, not confirmation of an active program or volunteer opening in Lee or Collier County.</p>
     </section>
 
     <section class="values-band" aria-label="LifeWise character values">
@@ -244,7 +249,6 @@
           <p id="year-end-gift-note">Required: $1 or more, with up to two decimal places. Choose “One time” and confirm the amount in LifeWise’s checkout before donating.</p>
           <button class="button button-yellow" type="submit">Continue with year-end gift <span aria-hidden="true">-&gt;</span></button>
         </form>
-        <p class="give-footnote">If Lee or Collier County is not available in the program list, <a href="mailto:info@lifewise.org?subject=Lee%20and%20Collier%20County%20giving">contact LifeWise</a> to confirm local availability or how a gift may be designated.</p>
       </div>
     </section>
 
@@ -262,11 +266,11 @@
         </details>
         <details>
           <summary>Can I direct a gift to Lee or Collier?</summary>
-          <p>Use the official local-program giving checkout to see the available programs. If you do not see the county or program you have in mind, contact LifeWise before giving to ask about availability and designation.</p>
+          <p>Use the official local-program giving checkout to see the available programs. Review the program list in the checkout before you donate.</p>
         </details>
         <details>
           <summary>How can I volunteer or help locally?</summary>
-          <p>Explore LifeWise’s Street Team, community launch, and church liaison resources above. Contact LifeWise to confirm which opportunities are currently available in Lee or Collier County.</p>
+          <p>Explore LifeWise’s Street Team, community launch, and church liaison resources above.</p>
         </details>
         <details>
           <summary>What is LifeWise <span class="academy-highlight">Academy</span>?</summary>

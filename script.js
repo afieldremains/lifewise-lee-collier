@@ -231,7 +231,7 @@ if (finePointer && !reduceMotion) {
     });
   });
 
-  document.querySelectorAll(".donation-tier").forEach((el) => {
+  document.querySelectorAll(".donation-tier, .quick-chip").forEach((el) => {
     el.addEventListener("pointermove", (e) => {
       if (motionPaused) return;
       const r = el.getBoundingClientRect();
@@ -263,6 +263,7 @@ if ("IntersectionObserver" in window) {
 const pill = document.querySelector(".donate-pill");
 const heroEl = document.querySelector(".hero");
 const giveEl = document.querySelector(".give-section");
+const quickGive = document.querySelector(".quick-give");
 let ticking = false;
 
 const onScroll = () => {
@@ -281,7 +282,9 @@ const onScroll = () => {
     const pastHero = heroEl.getBoundingClientRect().bottom < vh * 0.15;
     const giveRect = giveEl.getBoundingClientRect();
     const inGive = giveRect.top < vh * 0.7 && giveRect.bottom > vh * 0.2;
-    const shown = pastHero && !inGive;
+    const quickRect = quickGive ? quickGive.getBoundingClientRect() : null;
+    const quickInView = quickRect && quickRect.top < vh && quickRect.bottom > 0;
+    const shown = pastHero && !inGive && !quickInView;
     pill.classList.toggle("is-shown", shown);
     pill.setAttribute("aria-hidden", String(!shown));
     pill.tabIndex = shown ? 0 : -1;
@@ -428,6 +431,22 @@ if (shoreline) {
     [41, 38, 1, 15, 11, 22, 8], [56, 58, 1.2, 13, 3, 26, 7], [68, 28, 0.85, 16, 7, 18, 9],
     [80, 56, 1.05, 12, 12, 20, 6], [93, 34, 0.9, 14, 4, 16, 8]
   ]));
+}
+
+// Pop a shoreline bubble on hover or tap; it reforms after a short pause.
+if (shoreline) {
+  const pop = (bubble) => {
+    if (!bubble || bubble.classList.contains("is-popped") || bubble.classList.contains("is-reforming")) return;
+    bubble.classList.add("is-popped");
+    setTimeout(() => {
+      bubble.classList.replace("is-popped", "is-reforming");
+      requestAnimationFrame(() => requestAnimationFrame(() => bubble.classList.remove("is-reforming")));
+    }, reduceMotion ? 900 : 2600);
+  };
+  shoreline.addEventListener("pointerover", (e) => {
+    if (e.pointerType === "mouse") pop(e.target.closest(".brand-bubble"));
+  });
+  shoreline.addEventListener("pointerdown", (e) => pop(e.target.closest(".brand-bubble")));
 }
 
 /* ===== Wave crash into the giving section ===== */

@@ -55,3 +55,5 @@ Use native links, buttons, and disclosure elements. The mobile navigation must e
 The footer studio credit sits on a white chip so the logo's multiply-blended overlaps (blue, pink, and yellow) render true.
 
 Brand bubbles are decorative (`aria-hidden`). Keep their marks faint (crest about 30% opacity, Prime mark about 20%) so they read as texture, never as content, and animate only transform-based properties.
+
+The quick-give card is the boldest donation surface: a yellow card with a red offset shadow, navy amount chips and a red full-width CTA. Keep small text on yellow navy (red fails contrast below large-text sizes). The floating donate pill hides while this card or the giving section is on screen.
