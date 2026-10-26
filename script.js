@@ -1,3 +1,17 @@
+// Every visit opens at the top: drop stale section links (e.g. a shared "#give" URL) and restored scroll.
+// The inline head script normally clears the hash first; this is the fallback.
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (location.hash || window.scrollY > 0) {
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  window.scrollTo({ top: 0, behavior: "instant" });
+  let userMoved = false;
+  const moved = () => { userMoved = true; };
+  ["wheel", "touchstart", "keydown", "pointerdown"].forEach((t) => window.addEventListener(t, moved, { once: true, passive: true }));
+  window.addEventListener("load", () => {
+    if (!userMoved && window.scrollY > 0) window.scrollTo({ top: 0, behavior: "instant" });
+  }, { once: true });
+}
+
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector("#site-nav");
 
@@ -468,7 +482,6 @@ const landOnGive = () => {
   const anchor = shoreline || give;
   const top = anchor.getBoundingClientRect().top + window.scrollY;
   window.scrollTo({ top, behavior: "instant" });
-  if (location.hash !== "#give") history.pushState(null, "", "#give");
   give.setAttribute("tabindex", "-1");
   give.focus({ preventScroll: true });
 };

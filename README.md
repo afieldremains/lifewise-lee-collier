@@ -69,7 +69,10 @@ The other supplied images are preserved byte-for-byte in `assets/originals/`: cl
 The page uses quality-95 WebP derivatives at 800, 1200, and original pixel width,
 without upscaling, selected through responsive `srcset`/`sizes`. The existing
 full-size JPEGs remain available for banner sources and social sharing.
-The community image is illustrative, not evidence of a local event.
+The community image is illustrative, not evidence of a local event. Its
+Copilot watermark was removed by filling from the surrounding sleeve pixels
+(`assets/originals/community-volunteers-clean.png`); the page serves
+`community-volunteers-clean-{800,1200,1536}.webp` with no text over the photo.
 
 The current local-section image is `assets/lifewise-bus-city.webp`, the user's
 replacement supplied at 1480 x 880. It is preserved unchanged and displayed in
