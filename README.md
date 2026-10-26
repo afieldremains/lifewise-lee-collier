@@ -34,6 +34,12 @@ donation tiers and Other amount form still open the official checkout. Reduced
 motion, the Pause animations control, and no-JavaScript views skip the crash and
 keep the sun static. Layered SVG wave dividers bridge sections.
 
+Faint glass bubbles drift in the shoreline sea and rise through the wave crash.
+Each carries a near-transparent LifeWise Academy crest or Prime Digital Connect
+mark as subtle branding. The crest (`assets/lifewise-crest-white.webp`, 1079x805)
+is keyed from the supplied white-on-gray logo with no enlargement. The bubbles
+animate only while visible and stay still for reduced motion or when paused.
+
 ## Credit
 
 The footer credits the page as a Prime Digital Connect™ creation and project.

@@ -412,11 +412,33 @@ if (shoreline && "IntersectionObserver" in window) {
   new IntersectionObserver(([entry]) => shoreline.classList.toggle("in-view", entry.isIntersecting)).observe(shoreline);
 }
 
+/* ===== Brand bubbles: faint LifeWise and Prime Digital Connect marks drifting in the water ===== */
+const bubbleMarks = {
+  lifewise: '<img src="assets/lifewise-crest-white.webp?v=20261026-bubbles" width="1079" height="805" alt="" decoding="async">',
+  prime: '<svg viewBox="0 0 182 241" focusable="false"><rect x="0" y="2" width="61" height="239" rx="30.5" fill="#00a3ff"/><circle cx="99" cy="84" r="57.5" fill="none" stroke="#ff2d87" stroke-width="51"/><rect x="34" y="108" width="72" height="72" fill="#ffd500"/></svg>'
+};
+// Each spec: [left %, top %, size factor, drift seconds, phase seconds, sway px, bob px]
+const bubbleLayer = (className, specs) => `<div class="brand-bubbles ${className}" aria-hidden="true">${specs.map(([x, y, s, d, phase, dx, dy], i) => {
+  const kind = i % 2 ? "prime" : "lifewise";
+  return `<span class="brand-bubble is-${kind}" style="--x:${x}%;--y:${y}%;--s:${s};--d:${d}s;--phase:-${phase}s;--dx:${dx}px;--dy:${dy}px"><span class="bb-mark">${bubbleMarks[kind]}</span></span>`;
+}).join("")}</div>`;
+if (shoreline) {
+  shoreline.insertAdjacentHTML("beforeend", bubbleLayer("shore-bubbles", [
+    [6, 52, 0.9, 11, 2, 18, 7], [17, 30, 1.15, 14, 9, 24, 9], [29, 64, 0.8, 12, 5, 16, 6],
+    [41, 38, 1, 15, 11, 22, 8], [56, 58, 1.2, 13, 3, 26, 7], [68, 28, 0.85, 16, 7, 18, 9],
+    [80, 56, 1.05, 12, 12, 20, 6], [93, 34, 0.9, 14, 4, 16, 8]
+  ]));
+}
+
 /* ===== Wave crash into the giving section ===== */
 const crashMarkup = `
   <div class="crash-layer crash-deep"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><path d="M0 170C160 90 330 60 500 110S820 210 1000 120 1300 40 1440 90V1300H0Z" fill="#0a223b"/></svg></div>
   <div class="crash-layer crash-ocean"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><path d="M0 120C200 40 380 30 560 90S860 200 1060 100 1320 30 1440 70V1300H0Z" fill="#0a7fb8"/></svg></div>
-  <div class="crash-layer crash-front"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><defs><linearGradient id="crash-blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00bfed"/><stop offset="0.45" stop-color="#0a9fd6"/><stop offset="1" stop-color="#0a5f94"/></linearGradient></defs><path d="M0 200C140 120 300 100 470 150S760 240 960 150 1260 70 1440 130V1300H0Z" fill="url(#crash-blue)"/><path d="M0 200C140 120 300 100 470 150S760 240 960 150 1260 70 1440 130" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round"/><g fill="#fff"><circle cx="90" cy="150" r="22"/><circle cx="260" cy="118" r="30"/><circle cx="420" cy="146" r="18"/><circle cx="610" cy="196" r="26"/><circle cx="790" cy="214" r="20"/><circle cx="980" cy="138" r="32"/><circle cx="1150" cy="98" r="22"/><circle cx="1330" cy="102" r="28"/></g><g fill="#fff" opacity="0.55"><circle cx="180" cy="230" r="9"/><circle cx="520" cy="250" r="7"/><circle cx="880" cy="270" r="10"/><circle cx="1240" cy="190" r="8"/><circle cx="700" cy="320" r="6"/><circle cx="340" cy="300" r="7"/></g></svg></div>
+  <div class="crash-layer crash-front"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><defs><linearGradient id="crash-blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00bfed"/><stop offset="0.45" stop-color="#0a9fd6"/><stop offset="1" stop-color="#0a5f94"/></linearGradient></defs><path d="M0 200C140 120 300 100 470 150S760 240 960 150 1260 70 1440 130V1300H0Z" fill="url(#crash-blue)"/><path d="M0 200C140 120 300 100 470 150S760 240 960 150 1260 70 1440 130" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round"/><g fill="#fff"><circle cx="90" cy="150" r="22"/><circle cx="260" cy="118" r="30"/><circle cx="420" cy="146" r="18"/><circle cx="610" cy="196" r="26"/><circle cx="790" cy="214" r="20"/><circle cx="980" cy="138" r="32"/><circle cx="1150" cy="98" r="22"/><circle cx="1330" cy="102" r="28"/></g><g fill="#fff" opacity="0.55"><circle cx="180" cy="230" r="9"/><circle cx="520" cy="250" r="7"/><circle cx="880" cy="270" r="10"/><circle cx="1240" cy="190" r="8"/><circle cx="700" cy="320" r="6"/><circle cx="340" cy="300" r="7"/></g></svg>${bubbleLayer("crash-bubbles", [
+    [12, 30, 1, 3.2, 0.4, 26, 40], [27, 52, 1.3, 3.8, 1.1, 30, 52], [41, 24, 0.85, 3, 0.2, 22, 36],
+    [55, 44, 1.15, 3.5, 1.6, 28, 48], [69, 62, 0.95, 3.3, 0.8, 24, 44], [82, 34, 1.25, 4, 1.3, 32, 56],
+    [92, 56, 0.8, 2.9, 0.5, 20, 34], [20, 74, 0.9, 3.4, 1.9, 24, 40], [63, 80, 1.05, 3.6, 0.3, 26, 46]
+  ])}</div>
   <div class="crash-foam"></div>
   <div class="crash-layer crash-lace"><svg viewBox="0 0 1440 1300" preserveAspectRatio="none" focusable="false"><g fill="none" stroke="#fff" stroke-linecap="round" opacity="0.8"><path d="M0 260C160 220 300 300 470 250S760 330 960 260 1260 200 1440 250" stroke-width="10"/><path d="M0 330C200 290 340 360 560 320S880 380 1060 330 1320 290 1440 320" stroke-width="5" stroke-dasharray="18 22"/></g></svg></div>`;
 let waveCrash = null;
