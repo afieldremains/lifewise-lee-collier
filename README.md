@@ -23,6 +23,11 @@ without upscaling, selected through responsive `srcset`/`sizes`. The existing
 full-size JPEGs remain available for banner sources and social sharing.
 The community image is illustrative, not evidence of a local event.
 
+The current local-section image is `assets/lifewise-bus-city.webp`, the user's
+replacement supplied at 1480 x 880. It is preserved unchanged and displayed in
+full without stretching or cropping. Older bus derivatives remain available
+for existing banner assets but are no longer used by the landing page.
+
 The classroom and bus also have 3840-pixel-wide WebP exports (3840 x 2471
 and 3840 x 2358), selected only when the responsive image slot and screen density
 need them. These are high-quality Lanczos enlargements of the earlier
