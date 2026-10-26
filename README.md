@@ -48,7 +48,7 @@ contact routes.
 
 ## Credit
 
-The footer credits the page as a Prime Digital Connect™ creation and project.
+The footer credits the page as a Prime Digital Connect™ concept.
 The mark is rebuilt as vector (`assets/prime-digital-connect-mark.svg`) so it is
 sharp at any size; `assets/prime-digital-connect-logo-4k.png` is a 3840x3840
 lockup rendered from that vector. Hovering the logo spins and pops the mark
