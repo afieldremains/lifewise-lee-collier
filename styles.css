@@ -169,17 +169,42 @@ summary:focus-visible {
   place-items: center;
 }
 
+.sun-brand::before {
+  position: absolute;
+  inset: 6px;
+  border: 2px solid #d88700;
+  border-radius: 50%;
+  background: var(--yellow);
+  content: "";
+  opacity: 0;
+  animation: sunshine-radiate 3.6s ease-out infinite;
+  animation-play-state: paused;
+}
+
 .sun-rays {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  color: var(--red);
-  transition: rotate 300ms ease-out;
+  color: #e79b00;
+  animation: sunshine-rays 3.6s ease-in-out infinite;
+  animation-play-state: paused;
 }
 
-.sun-nav > summary:hover .sun-rays,
-.sun-nav > summary:focus-visible .sun-rays { rotate: 12deg; }
+.sun-nav.is-sunlit .sun-rays,
+.sun-nav.is-sunlit .sun-brand::before {
+  animation-play-state: running;
+}
+
+@keyframes sunshine-rays {
+  0%, 100% { transform: scale(0.92); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes sunshine-radiate {
+  0% { transform: scale(0.8); opacity: 0.45; }
+  85%, 100% { transform: scale(1.35); opacity: 0; }
+}
 
 .sun-disc {
   z-index: 1;
@@ -189,15 +214,15 @@ summary:focus-visible {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 3px solid var(--red);
+  border: 3px solid #e79b00;
   border-radius: 50%;
-  color: #fff;
-  background: var(--navy-deep);
+  color: var(--navy-deep);
+  background: radial-gradient(circle at 35% 28%, #fff5b4, var(--yellow) 65%, #f0ad1e);
   line-height: 1.15;
 }
 
 .sun-life { font-size: 18px; font-weight: 900; letter-spacing: -0.04em; }
-.sun-academy { color: var(--yellow); font-size: 13px; font-weight: 900; }
+.sun-academy { padding: 1px 4px; color: var(--yellow); background: var(--navy-deep); font-size: 13px; font-weight: 900; }
 .sun-florida { margin-top: 4px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
 .sun-prompt { font-size: 15px; line-height: 1.6; }
 .sun-prompt strong { text-decoration: underline; text-underline-offset: 4px; }
@@ -227,6 +252,18 @@ summary:focus-visible {
 
 .sun-links .sun-donate { color: #fff; background: var(--red); }
 .sun-links a:not(.sun-donate):hover { background: var(--yellow); }
+
+.coastal-divider {
+  height: clamp(56px, 7vw, 110px);
+  background-image: url("assets/florida-waves.svg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.coastal-divider-sunshine { background-color: var(--yellow); }
+.coastal-divider-giving { background-color: var(--red); }
 
 .site-nav {
   display: flex;

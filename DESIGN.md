@@ -23,10 +23,16 @@ backing so it remains readable on light surfaces. Preserve supplied photos;
 do not recolor lettering embedded in them.
 
 The hero's Florida sun badge combines the campaign's LifeWise wordmark with
-red rays and a navy disc. Its labeled native disclosure opens quick navigation
+golden tapered rays and a warm yellow disc, with yellow Academy lettering on
+navy. A gentle outward ray pulse and radiating ring run only while visible,
+respect reduced motion, and obey the page's pause control. Its labeled native disclosure opens quick navigation
 with giving first, then program, local support, volunteering, and the giving FAQ.
 Keep it in normal flow rather than covering copy or photography; preserve
 keyboard activation, visible focus, Escape dismissal, and no-JavaScript use.
+
+Layered sky, ocean blue, navy, and paper waves bridge the hero/program and
+giving/FAQ boundaries. Keep these dividers static, decorative, noninteractive,
+and outside the reading and keyboard order; the sun is the coastal focal motion.
 
 ## Type and layout
 

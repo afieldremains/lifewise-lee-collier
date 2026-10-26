@@ -24,6 +24,13 @@ click, or selection, and moves keyboard focus to the destination.
 Editable instances of "Academy" in LifeWise branding and page copy use brand
 yellow on navy for contrast. Text embedded in supplied photographs is unchanged.
 
+The sun uses a warm yellow disc and tapered golden rays that gently pulse
+outward. Its radiating ring and rays pause offscreen, when the document is
+hidden, or through the page's Pause animations control; reduced-motion and
+no-JavaScript views stay static. Lightweight layered SVG ocean-wave dividers
+bridge the hero/program and giving/FAQ sections without adding motion or
+interfering with navigation.
+
 ## Photography
 
 The supplied images are preserved byte-for-byte in `assets/originals/`: classroom

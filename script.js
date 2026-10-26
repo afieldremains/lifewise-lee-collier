@@ -31,6 +31,18 @@ if (menuToggle && siteNav) {
 
 const sunNav = document.querySelector(".sun-nav");
 if (sunNav) {
+  const updateSunlight = (visible) => {
+    sunNav.classList.toggle("is-sunlit", visible && !document.hidden);
+  };
+  let sunVisible = false;
+  if ("IntersectionObserver" in window) {
+    const sunObserver = new IntersectionObserver(([entry]) => {
+      sunVisible = entry.isIntersecting;
+      updateSunlight(sunVisible);
+    });
+    sunObserver.observe(sunNav);
+    document.addEventListener("visibilitychange", () => updateSunlight(sunVisible));
+  }
   const sunSummary = sunNav.querySelector("summary");
   const closeSunNav = () => {
     if (sunNav.contains(document.activeElement)) sunSummary.focus();
