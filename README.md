@@ -139,3 +139,6 @@ Use the HTTPS live URL above, not an old `file://` preview. Publishing updates
 GitHub Pages; it does not update another local checkout or a browser tab opened
 from that checkout. CSS/JS use release query strings and responsive photos use
 new filenames to avoid stale cached assets.
+
+Three compact replicas of the yellow "Make waves" box (after the program overview, after the volunteer pathways and beside the FAQ) repeat the monthly sponsorship chips and lead with a red "One-time year-end gift" tab. The ribbon, header ("Sponsor a student"), values band, FAQ answers and footer giving row add further links to #give and #year-end-gift. No checkout settings change; donors still confirm frequency in LifeWise's checkout.
+

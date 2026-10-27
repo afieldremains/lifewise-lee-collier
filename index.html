@@ -20,9 +20,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/lifewise-teacher-3840.webp" imagesrcset="assets/lifewise-teacher-800.webp 800w, assets/lifewise-teacher-1200.webp 1200w, assets/lifewise-teacher-1549.webp 1549w, assets/lifewise-teacher-3840.webp 3840w" imagesizes="(max-width: 680px) 800px, (max-width: 2400px) 1200px, 50vw">
-  <link rel="stylesheet" href="styles.css?v=20261027-yearend">
+  <link rel="stylesheet" href="styles.css?v=20261028-minigive">
   <script>if("scrollRestoration"in history)history.scrollRestoration="manual";if(location.hash)history.replaceState(null,"",location.pathname+location.search);</script>
-  <script src="script.js?v=20261027-yearend" defer></script>
+  <script src="script.js?v=20261028-minigive" defer></script>
 </head>
 <body>
   <!--
@@ -39,6 +39,7 @@
     <span class="ribbon-mark" aria-hidden="true"></span>
     <span>Collier County</span>
     <span class="ribbon-tail">Southwest Florida</span>
+    <a class="ribbon-give" href="#year-end-gift">Give a year-end gift <span aria-hidden="true">-&gt;</span></a>
   </div>
 
   <header class="site-header">
@@ -55,6 +56,7 @@
       <a href="#program">The program</a>
       <a href="#local">Why local</a>
       <a href="#volunteer">Volunteer</a>
+      <a class="nav-sponsor" href="#give">Sponsor a student</a>
       <a class="nav-give" href="#year-end-gift">Give a year-end gift <span aria-hidden="true">-&gt;</span></a>
     </nav>
   </header>
@@ -137,6 +139,19 @@
           <p>Courage, kindness, and respect are part of the conversation.</p>
         </div>
       </div>
+      <div class="quick-give quick-give-mini" aria-labelledby="quick-give-program-title">
+        <svg class="quick-burst" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M100 0l7 70h-14zM100 200l-7-70h14zM0 100l70-7v14zM200 100l-70 7v-14zM29 29l55 46-9 9zM171 171l-55-46 9-9zM29 171l46-55 9 9zM171 29l-46 55-9-9z"/></g></svg>
+        <svg class="quick-wave" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 18C50 4 90 32 140 18S240 4 290 18 360 30 400 16V40H0Z" fill="#00bfed"/><path d="M0 28C60 16 100 40 160 28S260 16 320 28 380 36 400 26V40H0Z" fill="#102d4b"/></svg>
+        <h3 id="quick-give-program-title">Make waves <span>during school hours.</span></h3>
+        <a class="quick-yearend-tab" href="#year-end-gift"><strong>One-time <span class="nb">year-end gift <span aria-hidden="true">-&gt;</span></span></strong><span>Help LifeWise meet its <span class="nb">year-end</span> goals.</span></a>
+        <ul class="quick-chips" aria-label="Monthly student sponsorship">
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=34" target="_blank" rel="noopener noreferrer"><strong>$34/month</strong><span aria-hidden="true">Sponsor a student</span><span class="visually-hidden"> to sponsor a student per month. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=49" target="_blank" rel="noopener noreferrer"><strong>$49/month</strong><span aria-hidden="true">Plus lunch</span><span class="visually-hidden"> to sponsor a student, including lunch Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=74" target="_blank" rel="noopener noreferrer"><strong>$74/month</strong><span aria-hidden="true">Plus transportation</span><span class="visually-hidden"> to sponsor a student with all the above plus transportation. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=109" target="_blank" rel="noopener noreferrer"><strong>$109/month</strong><span aria-hidden="true">Plus a Bible</span><span class="visually-hidden"> to provide all the above and a Bible. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+        </ul>
+        <p class="quick-frequency-note">Monthly sponsorships: select monthly giving in LifeWise's checkout. <a href="#give">See every way to give</a>.</p>
+      </div>
     </section>
 
     <section class="local-section" id="local" aria-labelledby="local-title">
@@ -152,6 +167,7 @@
           <svg class="quick-burst" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M100 0l7 70h-14zM100 200l-7-70h14zM0 100l70-7v14zM200 100l-70 7v-14zM29 29l55 46-9 9zM171 171l-55-46 9-9zM29 171l46-55 9 9zM171 29l-46 55-9-9z"/></g></svg>
           <svg class="quick-wave" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 18C50 4 90 32 140 18S240 4 290 18 360 30 400 16V40H0Z" fill="#00bfed"/><path d="M0 28C60 16 100 40 160 28S260 16 320 28 380 36 400 26V40H0Z" fill="#102d4b"/></svg>
           <h3 id="quick-give-title">Make waves <span>with a gift today.</span></h3>
+          <a class="quick-yearend-tab" href="#year-end-gift"><strong>One-time <span class="nb">year-end gift <span aria-hidden="true">-&gt;</span></span></strong><span>Help LifeWise meet its <span class="nb">year-end</span> goals.</span></a>
           <ul class="quick-chips">
             <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=34" target="_blank" rel="noopener noreferrer"><strong>$34/month</strong><span>to sponsor a student per month.</span><span class="visually-hidden"> Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
             <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=49" target="_blank" rel="noopener noreferrer"><strong>$49/month</strong><span>to sponsor a student, including lunch</span><span class="visually-hidden"> Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
@@ -159,7 +175,6 @@
             <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=109" target="_blank" rel="noopener noreferrer"><strong>$109/month</strong><span>to provide all the above and a Bible.</span><span class="visually-hidden"> Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
           </ul>
           <p class="quick-frequency-note">Select monthly giving and confirm your amount in LifeWise's checkout.</p>
-          <a class="button button-red quick-cta" href="#year-end-gift">Give a one-time year-end gift <span aria-hidden="true">-&gt;</span></a>
           <a class="button button-red quick-cta" href="#give">See every way to give <span aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
@@ -190,6 +205,19 @@
         </article>
       </div>
       <p class="volunteer-note">These are LifeWise’s general pathways, not confirmation of an active program or volunteer opening in Lee or Collier County.</p>
+      <div class="quick-give quick-give-mini" aria-labelledby="quick-give-volunteer-title">
+        <svg class="quick-burst" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M100 0l7 70h-14zM100 200l-7-70h14zM0 100l70-7v14zM200 100l-70 7v-14zM29 29l55 46-9 9zM171 171l-55-46 9-9zM29 171l46-55 9 9zM171 29l-46 55-9-9z"/></g></svg>
+        <svg class="quick-wave" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 18C50 4 90 32 140 18S240 4 290 18 360 30 400 16V40H0Z" fill="#00bfed"/><path d="M0 28C60 16 100 40 160 28S260 16 320 28 380 36 400 26V40H0Z" fill="#102d4b"/></svg>
+        <h3 id="quick-give-volunteer-title">Can’t volunteer? <span>Make waves with a gift.</span></h3>
+        <a class="quick-yearend-tab" href="#year-end-gift"><strong>One-time <span class="nb">year-end gift <span aria-hidden="true">-&gt;</span></span></strong><span>Help LifeWise meet its <span class="nb">year-end</span> goals.</span></a>
+        <ul class="quick-chips" aria-label="Monthly student sponsorship">
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=34" target="_blank" rel="noopener noreferrer"><strong>$34/month</strong><span aria-hidden="true">Sponsor a student</span><span class="visually-hidden"> to sponsor a student per month. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=49" target="_blank" rel="noopener noreferrer"><strong>$49/month</strong><span aria-hidden="true">Plus lunch</span><span class="visually-hidden"> to sponsor a student, including lunch Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=74" target="_blank" rel="noopener noreferrer"><strong>$74/month</strong><span aria-hidden="true">Plus transportation</span><span class="visually-hidden"> to sponsor a student with all the above plus transportation. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+          <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=109" target="_blank" rel="noopener noreferrer"><strong>$109/month</strong><span aria-hidden="true">Plus a Bible</span><span class="visually-hidden"> to provide all the above and a Bible. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+        </ul>
+        <p class="quick-frequency-note">Monthly sponsorships: select monthly giving in LifeWise's checkout. <a href="#give">See every way to give</a>.</p>
+      </div>
     </section>
 
     <section class="values-band" aria-label="LifeWise character values">
@@ -200,6 +228,7 @@
         <li>Kindness</li>
         <li>Respect</li>
       </ul>
+      <a class="values-give" href="#year-end-gift">Support character education with a <span class="nb">year-end gift <span aria-hidden="true">-&gt;</span></span></a>
     </section>
 
     <div class="shoreline" aria-hidden="true">
@@ -281,6 +310,19 @@
       <div class="morph-field" aria-hidden="true"><span class="morph morph-a"></span><span class="morph morph-b"></span><span class="morph morph-c"></span></div>
       <div class="questions-intro">
         <h2 id="questions-title">Before you <em>give.</em></h2>
+        <div class="quick-give quick-give-mini" aria-labelledby="quick-give-questions-title">
+          <svg class="quick-burst" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M100 0l7 70h-14zM100 200l-7-70h14zM0 100l70-7v14zM200 100l-70 7v-14zM29 29l55 46-9 9zM171 171l-55-46 9-9zM29 171l46-55 9 9zM171 29l-46 55-9-9z"/></g></svg>
+          <svg class="quick-wave" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 18C50 4 90 32 140 18S240 4 290 18 360 30 400 16V40H0Z" fill="#00bfed"/><path d="M0 28C60 16 100 40 160 28S260 16 320 28 380 36 400 26V40H0Z" fill="#102d4b"/></svg>
+          <h3 id="quick-give-questions-title">Ready to <span>make waves?</span></h3>
+          <a class="quick-yearend-tab" href="#year-end-gift"><strong>One-time <span class="nb">year-end gift <span aria-hidden="true">-&gt;</span></span></strong><span>Help LifeWise meet its <span class="nb">year-end</span> goals.</span></a>
+          <ul class="quick-chips" aria-label="Monthly student sponsorship">
+            <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=34" target="_blank" rel="noopener noreferrer"><strong>$34/month</strong><span aria-hidden="true">Sponsor a student</span><span class="visually-hidden"> to sponsor a student per month. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+            <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=49" target="_blank" rel="noopener noreferrer"><strong>$49/month</strong><span aria-hidden="true">Plus lunch</span><span class="visually-hidden"> to sponsor a student, including lunch Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+            <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=74" target="_blank" rel="noopener noreferrer"><strong>$74/month</strong><span aria-hidden="true">Plus transportation</span><span class="visually-hidden"> to sponsor a student with all the above plus transportation. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+            <li><a class="quick-chip" href="https://give.lifewise.org/lifewise/checkout/local-program-giving-checkout-all?payment_processor=payrix&amp;amount=109" target="_blank" rel="noopener noreferrer"><strong>$109/month</strong><span aria-hidden="true">Plus a Bible</span><span class="visually-hidden"> to provide all the above and a Bible. Select monthly giving in LifeWise checkout, opens in a new tab</span></a></li>
+          </ul>
+          <p class="quick-frequency-note">Monthly sponsorships: select monthly giving in LifeWise's checkout. <a href="#give">See every way to give</a>.</p>
+        </div>
       </div>
       <div class="questions-list">
         <details>
@@ -289,19 +331,19 @@
         </details>
         <details>
           <summary>Does this page collect donations?</summary>
-          <p>No. Giving happens on LifeWise <span class="academy-highlight">Academy</span>'s official checkout. This page only helps connect local supporters to that process.</p>
+          <p>No. Giving happens on LifeWise <span class="academy-highlight">Academy</span>'s official checkout. This page only helps connect local supporters to that process. <a href="#give">Choose a giving option</a>.</p>
         </details>
         <details>
           <summary>Can I direct a gift to Lee or Collier?</summary>
-          <p>Use the official local-program giving checkout to see the available programs. Review the program list in the checkout before you donate.</p>
+          <p>Use the official local-program giving checkout to see the available programs. Review the program list in the checkout before you donate. <a href="#give">Start with a giving option</a>.</p>
         </details>
         <details>
           <summary>How can I volunteer or help locally?</summary>
-          <p>Explore LifeWise’s Street Team, community launch, and church liaison resources above.</p>
+          <p>Explore LifeWise’s Street Team, community launch, and church liaison resources above. Prefer to give instead? <a href="#year-end-gift">Make a one-time year-end gift</a>.</p>
         </details>
         <details>
           <summary>What is LifeWise <span class="academy-highlight">Academy</span>?</summary>
-          <p>LifeWise partners with parents to offer Bible-based character education to public-school students during school hours through released-time religious instruction.</p>
+          <p>LifeWise partners with parents to offer Bible-based character education to public-school students during school hours through released-time religious instruction. <a href="#give">Sponsor a student monthly</a>.</p>
         </details>
       </div>
     </section>
@@ -314,7 +356,10 @@
     </a>
     <p>During school hours. Rooted in timeless truth.</p>
     <a class="footer-link" href="https://lifewise.org/" target="_blank" rel="noopener noreferrer">Visit LifeWise <span class="academy-highlight">Academy</span> <span aria-hidden="true">-&gt;</span></a>
-    <a class="footer-link" href="#year-end-gift">Make a one-time year-end donation <span aria-hidden="true">-&gt;</span></a>
+    <div class="footer-give">
+      <a class="footer-link" href="#year-end-gift">Make a one-time year-end donation <span aria-hidden="true">-&gt;</span></a>
+      <a class="footer-link" href="#give">Sponsor a student monthly <span aria-hidden="true">-&gt;</span></a>
+    </div>
     <small>Lee + Collier counties, Florida</small>
     <div class="maker-credit">
       <div class="prime-logo" role="img" aria-label="Prime Digital Connect trademark logo">

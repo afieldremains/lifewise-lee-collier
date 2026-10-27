@@ -81,3 +81,8 @@ The footer studio credit uses the Prime colour mark (blue #1d4ed8 stem, red #e12
 Brand bubbles are decorative (`aria-hidden`). Keep their marks faint (crest about 30% opacity, Prime colour and white monochrome marks about 20%) so they read as texture, never as content, and animate only transform-based properties.
 
 The quick-give card is the boldest donation surface: a yellow card with a red offset shadow, navy amount chips and a red full-width CTA. Keep small text on yellow navy (red fails contrast below large-text sizes). The floating donate pill hides while this card or the giving section is on screen.
+
+### Repeated giving boxes
+
+`.quick-give-mini` reuses the main box's sunburst, wave, offset shadow, tilt and chip hover at a smaller scale. Every box opens with `.quick-yearend-tab` (red, a subtle shine sweep that is disabled under reduced motion) above the monthly chips. No kicker labels. The floating pill hides while any box is mid-viewport.
+

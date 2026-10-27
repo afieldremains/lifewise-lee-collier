@@ -270,7 +270,7 @@ if (finePointer && !reduceMotion) {
     });
   });
 
-  document.querySelectorAll(".donation-tier, .quick-chip").forEach((el) => {
+  document.querySelectorAll(".donation-tier, .quick-chip, .quick-yearend-tab").forEach((el) => {
     el.addEventListener("pointermove", (e) => {
       if (motionPaused) return;
       const r = el.getBoundingClientRect();
@@ -302,7 +302,7 @@ if ("IntersectionObserver" in window) {
 const pill = document.querySelector(".donate-pill");
 const heroEl = document.querySelector(".hero");
 const giveEl = document.querySelector(".give-section");
-const quickGive = document.querySelector(".quick-give");
+const quickGives = [...document.querySelectorAll(".quick-give")];
 let ticking = false;
 
 const onScroll = () => {
@@ -321,8 +321,7 @@ const onScroll = () => {
     const pastHero = heroEl.getBoundingClientRect().bottom < vh * 0.15;
     const giveRect = giveEl.getBoundingClientRect();
     const inGive = giveRect.top < vh * 0.7 && giveRect.bottom > vh * 0.2;
-    const quickRect = quickGive ? quickGive.getBoundingClientRect() : null;
-    const quickInView = quickRect && quickRect.top < vh && quickRect.bottom > 0;
+    const quickInView = quickGives.some((box) => { const r = box.getBoundingClientRect(); return r.top < vh * 0.8 && r.bottom > vh * 0.2; });
     const shown = pastHero && !inGive && !quickInView;
     pill.classList.toggle("is-shown", shown);
     pill.setAttribute("aria-hidden", String(!shown));
