@@ -2988,11 +2988,65 @@ body a[href]:hover {
 .quick-give h3 { color: var(--lw-ink); }
 .quick-give h3 { letter-spacing: -0.02em; }
 .quick-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.quick-chip { background: var(--lw-ink); border-radius: 12px; }
+.quick-chip {
+  align-content: start;
+  gap: 8px;
+  height: 100%;
+  padding: 16px 12px;
+  background: var(--lw-ink);
+  border-radius: 12px;
+  text-align: center;
+  letter-spacing: 0;
+}
+.quick-chip > span:not(.visually-hidden) { font-size: 16px; font-weight: 400; line-height: 1.45; }
 .quick-frequency-note { margin: 0 0 18px; font-size: 16px; line-height: 1.5; }
 .quick-chip:hover,
 .quick-chip:focus-visible { background: var(--lw-red); box-shadow: 0 6px 0 #1a1a1a; }
 .quick-chip:focus-visible { outline-color: var(--lw-ink); }
+.quick-cta + .quick-cta { margin-top: 12px; }
+.button > span[aria-hidden="true"] { flex-shrink: 0; white-space: nowrap; }
+.quick-cta,
+.year-end-callout .button,
+.year-end-gift .button { padding: 14px 22px; text-align: center; }
+
+.year-end-callout { background: var(--lw-yellow); color: var(--lw-ink); text-align: center; }
+.year-end-callout h2 { margin: 0; font-size: clamp(32px, 4vw, 56px); line-height: 1.1; }
+.year-end-callout h2 em { color: var(--lw-red-deep); font-style: normal; }
+.year-end-callout p { max-width: 62ch; margin: 24px auto; font-size: 20px; line-height: 1.6; }
+.year-end-callout .year-end-context { margin-bottom: 0; font-size: 16px; }
+.year-end-gift {
+  max-width: 100%;
+  padding: 24px;
+  border: 2px solid var(--lw-yellow);
+  scroll-margin-top: 24px;
+  gap: 14px;
+}
+.year-end-gift h3 { margin: 0; color: var(--lw-yellow); font-size: 28px; line-height: 1.15; }
+.year-end-presets { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.year-end-presets[hidden] { display: none; }
+.year-end-presets button {
+  min-height: 48px;
+  padding: 8px 4px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.year-end-presets button:hover,
+.year-end-presets button[aria-pressed="true"] { color: var(--lw-ink); background: var(--lw-yellow); border-color: var(--lw-yellow); }
+.year-end-presets button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (max-width: 680px) {
+  .hero-actions .button { padding: 14px 22px; }
+  .year-end-gift { padding: 18px; }
+  .year-end-presets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .quick-chips { grid-template-columns: 1fr; }
+  .quick-chip { padding: 16px; }
+}
 
 /* Volunteer: white, centred, card pathways */
 .donation-tiers ul { grid-template-columns: 1fr; }

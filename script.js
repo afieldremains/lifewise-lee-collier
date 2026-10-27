@@ -102,12 +102,37 @@ if (motionToggle && !reduceMotion) {
 if (reduceMotion) document.querySelectorAll("svg animate").forEach((el) => el.remove());
 
 const amountInputs = document.querySelectorAll(".other-amount input[name='amount']");
+const yearEndInput = document.getElementById("year-end-gift-amount");
+const yearEndPresets = document.querySelector(".year-end-presets");
+const syncYearEndPresets = () => {
+  document.querySelectorAll("[data-year-end-amount]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(yearEndInput?.value === button.dataset.yearEndAmount));
+  });
+};
 amountInputs.forEach((input) => {
   input.addEventListener("input", () => {
     if (input.value) amountInputs.forEach((other) => {
       if (other !== input) other.value = "";
     });
+    syncYearEndPresets();
   });
+});
+if (yearEndPresets && yearEndInput) {
+  yearEndPresets.hidden = false;
+  yearEndPresets.addEventListener("click", (event) => {
+    const button = event.target instanceof Element ? event.target.closest("[data-year-end-amount]") : null;
+    if (!button) return;
+    yearEndInput.value = button.dataset.yearEndAmount;
+    yearEndInput.dispatchEvent(new Event("input", { bubbles: true }));
+    yearEndInput.focus({ preventScroll: true });
+  });
+}
+document.addEventListener("click", (event) => {
+  const link = event.target instanceof Element ? event.target.closest("a[href='#year-end-gift']") : null;
+  if (!link || !yearEndInput || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  document.getElementById("year-end-gift").scrollIntoView({ behavior: "instant", block: "start" });
+  yearEndInput.focus({ preventScroll: true });
 });
 
 if ("IntersectionObserver" in window && !reduceMotion && revealTargets.length) {

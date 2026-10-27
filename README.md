@@ -22,6 +22,15 @@ amount and available program in the official checkout; the links do not
 automatically establish a recurring gift. Other amount and year-end one-time
 gift fields remain separate.
 
+Year-end giving is the primary seasonal CTA in the header, hero, sun menu,
+yellow sponsorship box, floating button, and footer. These links focus the
+year-end amount field directly, without the slower wave transition. The yellow
+box also shows all four monthly sponsorship descriptions. Year-end preset
+buttons fill the separate one-time amount field; they never submit a gift.
+Donors must confirm "One time" in the official checkout. Campaign copy describes
+the local Gospel outreach goal, not confirmed local program availability or a
+tax-deductibility guarantee.
+
 ## Campaign branding and navigation
 
 The visual style follows lifewise.org (red header with yellow Donate pill,

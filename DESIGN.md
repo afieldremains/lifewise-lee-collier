@@ -8,6 +8,15 @@ The first viewport exposes both primary actions: donate through the official che
 
 ## LifeWise.org alignment
 
+Year-end giving is the primary seasonal action, with direct links from the
+header, hero, sun navigation, yellow quick-give box, floating pill, and footer
+to the one-time amount form. Use the existing red/yellow palette for the
+campaign appeal and form outline. Preserve monthly sponsorship as a distinct
+choice, with visible descriptions in each yellow-box amount button; use one
+column on small phones to keep the descriptions legible. Year-end presets
+have visible selected states and never submit automatically. Direct year-end
+navigation focuses the amount field and bypasses the wave animation.
+
 The page mirrors lifewise.org's look: Lato body and headings, Bebas Neue for the
 uppercase hero and band headings (Google Fonts stand-ins for LifeWise's Typekit
 lato and bebas-kai), a #333 top ribbon, full-width red header with an outlined
