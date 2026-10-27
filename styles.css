@@ -2987,12 +2987,19 @@ body a[href]:hover {
 .quick-kicker,
 .quick-give h3 { color: var(--lw-ink); }
 .quick-give h3 { letter-spacing: -0.02em; }
+.quick-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .quick-chip { background: var(--lw-ink); border-radius: 12px; }
+.quick-frequency-note { margin: 0 0 18px; font-size: 16px; line-height: 1.5; }
 .quick-chip:hover,
 .quick-chip:focus-visible { background: var(--lw-red); box-shadow: 0 6px 0 #1a1a1a; }
 .quick-chip:focus-visible { outline-color: var(--lw-ink); }
 
 /* Volunteer: white, centred, card pathways */
+.donation-tiers ul { grid-template-columns: 1fr; }
+.donation-tiers li:nth-child(odd) { margin-right: 0; }
+.donation-tiers li:nth-child(even) { border-left: 0; }
+.donation-tiers li:nth-child(even) .donation-tier { padding-left: 0; }
+
 .volunteer-section { background: #fff; text-align: center; }
 .volunteer-heading { grid-template-columns: 1fr; justify-items: center; row-gap: 16px; }
 .volunteer-heading h2 { color: var(--lw-ink); font-size: clamp(36px, 4.4vw, 56px); }

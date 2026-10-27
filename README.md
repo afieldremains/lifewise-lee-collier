@@ -14,6 +14,14 @@ Banner sources live in `banners/src`. Rebuild with `python banners/build.py` and
 
 Donations are processed by LifeWise Academy's official giving checkout.
 
+Monthly student sponsorship options are $34 (student), $49 (with lunch),
+$74 (with lunch and transportation), and $109 (with lunch, transportation,
+and a Bible), using campaign-provided descriptions. Both sets of tier links
+send the matching amount. Donors must select monthly giving and confirm the
+amount and available program in the official checkout; the links do not
+automatically establish a recurring gift. Other amount and year-end one-time
+gift fields remain separate.
+
 ## Campaign branding and navigation
 
 The visual style follows lifewise.org (red header with yellow Donate pill,
